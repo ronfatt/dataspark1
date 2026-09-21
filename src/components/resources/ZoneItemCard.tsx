@@ -174,11 +174,11 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
         </div>
 
         {/* Content Info */}
-        <div className="p-4 sm:p-5">
+        <div className="p-3 sm:p-5">
           
           {/* Multi-language Edition Small Buttons (同一档案多语言切换) */}
           {hasEditions && item.editions!.length > 1 ? (
-            <div className="flex items-center gap-1.5 mb-2.5 flex-wrap">
+            <div className="flex items-center gap-1.5 mb-2 sm:mb-2.5 flex-wrap">
               <span className="text-[10px] text-slate-400 mr-0.5 font-medium">版本:</span>
               {item.editions!.map((ed, idx) => {
                 const isSelected = idx === selectedEditionIndex;
@@ -189,7 +189,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
                       e.stopPropagation();
                       setSelectedEditionIndex(idx);
                     }}
-                    className={`px-2 py-0.5 rounded-md text-[11px] font-semibold flex items-center gap-1 transition-all cursor-pointer ${
+                    className={`min-h-[30px] px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 ${
                       isSelected
                         ? 'bg-purple-600 text-white shadow-[0_0_12px_rgba(124,58,237,0.7)] border border-purple-300/80 scale-[1.03]'
                         : 'bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 hover:border-purple-400/40'
@@ -203,11 +203,11 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
             </div>
           ) : (
             /* Single language display if no editions */
-            <div className="flex items-center gap-1 mb-2 flex-wrap">
+            <div className="flex items-center gap-1 mb-1.5 sm:mb-2 flex-wrap">
               {item.languages.map((lang, idx) => (
                 <span 
                   key={idx}
-                  className="px-2 py-0.2 rounded bg-purple-950/70 border border-purple-500/20 text-[10px] text-purple-300 font-medium"
+                  className="px-1.5 sm:px-2 py-0.2 rounded bg-purple-950/70 border border-purple-500/20 text-[9px] sm:text-[10px] text-purple-300 font-medium"
                 >
                   {lang}
                 </span>
@@ -217,7 +217,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
 
           {/* Title */}
           <h3 
-            className="text-sm sm:text-base font-bold text-white group-hover:text-purple-300 transition-colors line-clamp-1 mb-1.5 cursor-pointer leading-snug"
+            className="text-xs sm:text-base font-bold text-white group-hover:text-purple-300 transition-colors line-clamp-2 mb-1 sm:mb-1.5 cursor-pointer leading-snug"
             onClick={handlePreviewClick}
             title={item.title}
           >
@@ -225,22 +225,22 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
           </h3>
 
           {/* Description */}
-          <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3">
+          <p className="text-[11px] sm:text-xs text-slate-400 line-clamp-2 leading-relaxed mb-2 sm:mb-3">
             {item.description}
           </p>
 
           {/* Specs: Size & Date */}
-          <div className="flex items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-purple-500/10 font-mono">
-            <div className="flex items-center gap-1">
-              <HardDrive className="w-3 h-3 text-purple-400/80" />
-              <span>{activeFileSize}</span>
+          <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-400 pt-1.5 sm:pt-2 border-t border-purple-500/10 font-mono">
+            <div className="flex items-center gap-1 truncate mr-1">
+              <HardDrive className="w-3 h-3 text-purple-400/80 shrink-0" />
+              <span className="truncate">{activeFileSize}</span>
               {currentEdition && (
-                <span className="text-purple-300 text-[10px] ml-1">
+                <span className="text-purple-300 text-[9px] sm:text-[10px] shrink-0">
                   ({currentEdition.label})
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 shrink-0">
               <Clock className="w-3 h-3 text-slate-500" />
               <span>{item.updatedAt}</span>
             </div>
@@ -250,21 +250,21 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
       </div>
 
       {/* Bottom Action Buttons */}
-      <div className="p-4 sm:px-5 sm:pb-5 pt-0 grid grid-cols-2 gap-2">
+      <div className="p-2.5 sm:p-4 sm:px-5 sm:pb-5 pt-0 grid grid-cols-2 gap-1.5 sm:gap-2">
         <button
           onClick={handlePreviewClick}
-          className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer"
+          className="flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-2 sm:px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] sm:text-xs font-semibold text-slate-300 hover:text-white transition-all active:scale-95 cursor-pointer"
         >
-          <Eye className="w-3.5 h-3.5 text-purple-400" />
-          <span>查验预览</span>
+          <Eye className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+          <span><span className="hidden sm:inline">查验</span>预览</span>
         </button>
 
         <button
           onClick={handleDownloadClick}
-          className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all cursor-pointer"
+          className="flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-2 sm:px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-[11px] sm:text-xs font-bold shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all active:scale-95 cursor-pointer"
         >
-          <Download className="w-3.5 h-3.5" />
-          <span>极速下载</span>
+          <Download className="w-3.5 h-3.5 shrink-0" />
+          <span><span className="hidden sm:inline">极速</span>下载</span>
         </button>
       </div>
 

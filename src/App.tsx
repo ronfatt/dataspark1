@@ -3,6 +3,7 @@ import confetti from 'canvas-confetti';
 import { Navbar } from './components/layout/Navbar';
 import { HeroBanner } from './components/layout/HeroBanner';
 import { Footer } from './components/layout/Footer';
+import { MobileBottomBar } from './components/layout/MobileBottomBar';
 import { ZoneNavBar } from './components/resources/ZoneNavBar';
 import { ZoneItemCard } from './components/resources/ZoneItemCard';
 import { SectionBlock } from './components/resources/SectionBlock';
@@ -225,9 +226,9 @@ export const App: React.FC = () => {
       <div className="fixed top-0 left-1/4 w-[600px] h-[600px] bg-purple-950/20 blur-[150px] rounded-full pointer-events-none -z-10" />
       <div className="fixed bottom-0 right-10 w-[700px] h-[500px] bg-indigo-950/15 blur-[160px] rounded-full pointer-events-none -z-10" />
 
-      {/* Floating Toast Notification */}
+      {/* Floating Toast Notification (Centered & elevated on mobile) */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 max-w-md p-4 rounded-2xl bg-[#120d24]/95 border border-purple-500/40 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(124,58,237,0.3)] animate-in slide-in-from-bottom-5 duration-300 flex items-start gap-3">
+        <div className="fixed bottom-20 md:bottom-6 inset-x-3 md:inset-x-auto md:right-6 z-50 max-w-md mx-auto md:mx-0 p-3 sm:p-4 rounded-2xl bg-[#120d24]/95 border border-purple-500/40 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.85),0_0_25px_rgba(124,58,237,0.3)] animate-in slide-in-from-bottom-5 duration-300 flex items-start gap-3">
           <div className={`p-2 rounded-xl shrink-0 ${
             toastMessage.type === 'new' 
               ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 animate-pulse' 
@@ -250,7 +251,7 @@ export const App: React.FC = () => {
         </div>
       )}
 
-      {/* Navbar (设计协作中心已去除) */}
+      {/* Navbar */}
       <Navbar
         selectedLanguage={selectedLanguage}
         onSelectLanguage={setSelectedLanguage}
@@ -268,7 +269,7 @@ export const App: React.FC = () => {
           setActiveZone(zId as any);
           const el = document.getElementById(`zone-${zId}`);
           if (el) {
-            const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
+            const y = el.getBoundingClientRect().top + window.pageYOffset - 110;
             window.scrollTo({ top: y, behavior: 'smooth' });
           }
         }}
@@ -283,29 +284,29 @@ export const App: React.FC = () => {
         onSelectFormat={setSelectedFormat}
       />
 
-      {/* Main Zones Container */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+      {/* Main Zones Container (pb-24 on mobile to give room for MobileBottomBar) */}
+      <main className="flex-1 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 w-full pb-24 md:pb-10">
 
         {/* Search Query View */}
         {searchQuery.trim() ? (
-          <div className="pt-4">
-            <div className="flex items-center justify-between mb-6">
+          <div className="pt-2 sm:pt-4">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
               <div>
-                <h2 className="text-2xl font-black text-white">
+                <h2 className="text-lg sm:text-2xl font-black text-white">
                   搜索结果: “{searchQuery}”
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">共找到 {filteredResources.length} 项匹配物料</p>
+                <p className="text-xs text-slate-400 mt-0.5 sm:mt-1">共找到 {filteredResources.length} 项匹配物料</p>
               </div>
               <button
                 onClick={() => setSearchQuery('')}
-                className="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 cursor-pointer"
+                className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 active:scale-95 cursor-pointer"
               >
                 清除搜索
               </button>
             </div>
 
             {filteredResources.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                 {filteredResources.map(item => (
                   <ZoneItemCard
                     key={item.id}
@@ -316,18 +317,18 @@ export const App: React.FC = () => {
                 ))}
               </div>
             ) : (
-              <div className="p-12 text-center rounded-3xl metal-card max-w-md mx-auto my-12">
-                <Search className="w-10 h-10 text-purple-400 mx-auto mb-3" />
-                <h3 className="text-base font-bold text-white mb-1">未找到匹配物料</h3>
+              <div className="p-8 sm:p-12 text-center rounded-3xl metal-card max-w-md mx-auto my-8 sm:my-12">
+                <Search className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 mx-auto mb-3" />
+                <h3 className="text-sm sm:text-base font-bold text-white mb-1">未找到匹配物料</h3>
                 <p className="text-xs text-slate-400">请尝试缩短搜索词或重置筛选条件。</p>
               </div>
             )}
           </div>
         ) : (
-          /* 5 Dedicated Aligned Sections (无最新交付冗余区块) */
-          <div className="space-y-4">
+          /* 5 Dedicated Aligned Sections */
+          <div className="space-y-2 sm:space-y-4">
 
-            {/* 1. 课件区 (项目介绍，金融简介) - 单卡多语言切换 */}
+            {/* 1. 课件区 (项目介绍，金融简介) - 舒适单列宽卡片便于多语切换 */}
             {(activeZone === 'all' || activeZone === 'courseware') && (
               <SectionBlock
                 id="zone-courseware"
@@ -337,8 +338,7 @@ export const App: React.FC = () => {
                 count={coursewareItems.length}
                 onBatchDownload={() => handleBatchDownload('课件区', coursewareItems.length)}
               >
-                {/* 3-Column Balanced Presentation Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {coursewareItems.map(item => (
                     <ZoneItemCard
                       key={item.id}
@@ -351,7 +351,7 @@ export const App: React.FC = () => {
               </SectionBlock>
             )}
 
-            {/* 2. 市场宣传 (各种海报，长图) */}
+            {/* 2. 市场宣传 (各种海报，长图) - 移动端双列高密度画册 */}
             {(activeZone === 'all' || activeZone === 'marketing') && (
               <SectionBlock
                 id="zone-marketing"
@@ -361,8 +361,7 @@ export const App: React.FC = () => {
                 count={marketingItems.length}
                 onBatchDownload={() => handleBatchDownload('市场宣传区', marketingItems.length)}
               >
-                {/* 4-Column Balanced Poster Grid (3:4 Ratio) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                   {marketingItems.map(item => (
                     <ZoneItemCard
                       key={item.id}
@@ -375,18 +374,17 @@ export const App: React.FC = () => {
               </SectionBlock>
             )}
 
-            {/* 3. 素材 (logo, 易拉宝) */}
+            {/* 3. 素材 (logo, 易拉宝, 执照) - 移动端双列高密度 */}
             {(activeZone === 'all' || activeZone === 'assets') && (
               <SectionBlock
                 id="zone-assets"
                 icon={Sparkles}
                 title="素材专区"
-                subtitle="3D立体金属新Logo • 透明底高清矢量 • 多语言线下易拉宝展架 (80x200cm)"
+                subtitle="3D立体金属新Logo • 透明底高清矢量 • 多语言线下易拉宝展架与合规执照"
                 count={assetsItems.length}
                 onBatchDownload={() => handleBatchDownload('素材专区', assetsItems.length)}
               >
-                {/* 4-Column Showcase Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                   {assetsItems.map(item => (
                     <ZoneItemCard
                       key={item.id}
@@ -399,7 +397,7 @@ export const App: React.FC = () => {
               </SectionBlock>
             )}
 
-            {/* 4. 视频区 (分类项目宣传片，活动片，公益片) */}
+            {/* 4. 视频区 (分类项目宣传片，活动片，公益片) - 舒适单列宽画幅 */}
             {(activeZone === 'all' || activeZone === 'videos') && (
               <SectionBlock
                 id="zone-videos"
@@ -409,8 +407,7 @@ export const App: React.FC = () => {
                 count={videoItems.length}
                 onBatchDownload={() => handleBatchDownload('视频专区', videoItems.length)}
               >
-                {/* 3-Column Cinema Wide Aspect Grid (16:9) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {videoItems.map(item => (
                     <ZoneItemCard
                       key={item.id}
@@ -423,7 +420,7 @@ export const App: React.FC = () => {
               </SectionBlock>
             )}
 
-            {/* 5. 活动照片区 (各国公益相册合集) */}
+            {/* 5. 活动照片区 (各国公益相册合集) - 移动端双列高密度 */}
             {(activeZone === 'all' || activeZone === 'events') && (
               <SectionBlock
                 id="zone-events"
@@ -433,8 +430,7 @@ export const App: React.FC = () => {
                 count={eventItems.length}
                 onBatchDownload={() => handleBatchDownload('活动照片区', eventItems.length)}
               >
-                {/* 3-Column Photo Albums Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                   {eventItems.map(item => (
                     <ZoneItemCard
                       key={item.id}
@@ -451,6 +447,12 @@ export const App: React.FC = () => {
         )}
 
       </main>
+
+      {/* Mobile Floating Bottom Navigation Dock */}
+      <MobileBottomBar
+        activeZone={activeZone}
+        onSelectZone={setActiveZone}
+      />
 
       {/* Footer */}
       <Footer />

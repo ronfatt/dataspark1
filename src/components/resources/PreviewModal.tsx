@@ -40,24 +40,28 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 lg:p-8 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex flex-col justify-end sm:justify-center sm:items-center sm:p-6 lg:p-8 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
       
       {/* Background click to close */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* Modal Box */}
-      <div className="relative z-10 w-full max-w-5xl max-h-[90vh] bg-[#0c0919] border border-purple-500/30 rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(124,58,237,0.3)] flex flex-col lg:flex-row">
+      {/* Modal Box / Mobile Bottom Sheet */}
+      <div className="relative z-10 w-full max-w-5xl max-h-[92vh] sm:max-h-[90vh] bg-[#0c0919] border-t sm:border border-purple-500/35 rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(124,58,237,0.3)] flex flex-col lg:flex-row animate-in slide-in-from-bottom duration-250 sm:duration-200">
         
+        {/* Mobile Drag Indicator */}
+        <div className="sm:hidden w-12 h-1.5 rounded-full bg-slate-600/80 mx-auto my-2.5 shrink-0" />
+
         {/* Top Right Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/70 hover:bg-black/90 text-slate-300 hover:text-white border border-white/20 transition-all cursor-pointer"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 rounded-full bg-black/70 hover:bg-black/90 text-slate-300 hover:text-white border border-white/20 transition-all active:scale-90 cursor-pointer"
+          aria-label="关闭"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
         {/* Left Side: Media Preview Stage */}
-        <div className="flex-1 bg-black/70 flex flex-col items-center justify-center p-4 sm:p-8 relative min-h-[300px] lg:min-h-[500px] overflow-hidden border-b lg:border-b-0 lg:border-r border-purple-500/20">
+        <div className="flex-1 bg-black/70 flex flex-col items-center justify-center p-3 sm:p-6 lg:p-8 relative min-h-[220px] sm:min-h-[320px] lg:min-h-[500px] max-h-[45vh] lg:max-h-none overflow-hidden border-b lg:border-b-0 lg:border-r border-purple-500/20">
           
           {/* Zoom controls for image */}
           {item.fileType === 'image' && (
@@ -141,23 +145,23 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
         </div>
 
         {/* Right Side: Details & Action Sidebar */}
-        <div className="w-full lg:w-96 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto bg-[#0f0a1d]">
+        <div className="w-full lg:w-96 p-4 sm:p-6 lg:p-8 pb-6 sm:pb-8 flex flex-col justify-between overflow-y-auto bg-[#0f0a1d]">
           
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             
             {/* Category & Status */}
             <div className="flex items-center justify-between">
-              <span className="px-3 py-1 rounded-full bg-purple-600/25 border border-purple-400/40 text-purple-300 text-xs font-semibold">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-purple-600/25 border border-purple-400/40 text-purple-300 text-xs font-semibold">
                 {item.subCategory}
               </span>
-              <span className="text-xs text-slate-400 font-mono">
+              <span className="text-[11px] sm:text-xs text-slate-400 font-mono">
                 {item.downloadsCount} 次下载查验
               </span>
             </div>
 
             {/* Title & Description */}
             <div>
-              <h2 className="text-xl font-bold text-white mb-2 leading-snug">
+              <h2 className="text-base sm:text-xl font-bold text-white mb-1.5 sm:mb-2 leading-snug">
                 {item.title}
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -166,7 +170,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             </div>
 
             {/* Specs Grid */}
-            <div className="grid grid-cols-2 gap-2.5 p-3.5 rounded-2xl bg-black/40 border border-purple-500/15 text-xs font-mono">
+            <div className="grid grid-cols-2 gap-2 sm:gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-black/40 border border-purple-500/15 text-xs font-mono">
               <div>
                 <span className="text-slate-500 block text-[10px]">文件格式</span>
                 <span className="text-white font-semibold">{item.fileFormatName}</span>
@@ -190,7 +194,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               {item.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg bg-white/5 border border-white/10 text-[10px] sm:text-[11px] text-slate-300"
                 >
                   #{tag}
                 </span>
@@ -198,37 +202,37 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             </div>
 
             {/* Usage Notice */}
-            <div className="p-3 rounded-xl bg-purple-950/30 border border-purple-500/20 flex items-start gap-2.5">
+            <div className="p-2.5 sm:p-3 rounded-xl bg-purple-950/30 border border-purple-500/20 flex items-start gap-2">
               <ShieldAlert className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
-              <div className="text-[11px] text-slate-400 leading-relaxed">
+              <div className="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">
                 官方物料使用规范：仅限 Spark 授权合伙人、渠道及活动团队正规宣传使用，严禁篡改主视觉或遮挡 Logo。
               </div>
             </div>
 
           </div>
 
-          {/* Action Buttons */}
-          <div className="pt-6 mt-6 border-t border-purple-500/15 space-y-2.5">
+          {/* Action Buttons (Full-width high touch targets) */}
+          <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-purple-500/15 space-y-2">
             <button
               onClick={() => onDownload(item)}
-              className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(124,58,237,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] transition-all cursor-pointer"
+              className="w-full min-h-[46px] sm:min-h-[50px] py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(124,58,237,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] transition-all active:scale-95 cursor-pointer"
             >
-              <Download className="w-4 h-4" />
+              <Download className="w-4 h-4 shrink-0" />
               <span>立即下载完整源文件 ({item.fileSize})</span>
             </button>
 
             <button
               onClick={handleCopyLink}
-              className="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full min-h-[40px] py-2 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer"
             >
               {copied ? (
                 <>
-                  <Check className="w-4 h-4 text-emerald-400" />
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span className="text-emerald-400 font-bold">直链已复制到剪贴板</span>
                 </>
               ) : (
                 <>
-                  <Share2 className="w-4 h-4 text-purple-400" />
+                  <Share2 className="w-4 h-4 text-purple-400 shrink-0" />
                   <span>复制物料分享直链</span>
                 </>
               )}
