@@ -35,7 +35,7 @@ export interface ResourceItem {
   languages: SupportedLanguage[];
   editions?: LanguageEdition[]; // 多语言独立版本切换
   fileType: FileFormat;
-  fileFormatName: string; // e.g. "PNG", "PDF", "MP4", "ZIP", "PPTX"
+  fileFormatName: string; // e.g. "PNG", "PDF", "MP4", "ZIP"
   fileSize: string;
   downloadUrl: string;
   previewUrl: string;

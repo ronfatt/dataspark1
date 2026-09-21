@@ -9,41 +9,41 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
     title: 'SPARK ONE 项目介绍标准讲课课件 v2.3',
     zone: 'courseware',
     subCategory: '项目介绍',
-    description: '官方金牌讲师标准演讲 PPTX/PDF 母版，深入阐述 SparkOne 商业模式、全球生态布局与产品矩阵。',
+    description: '官方金牌讲师标准演讲 PDF 高清轻量版，深入阐述 SparkOne 商业模式、全球生态布局与产品矩阵。',
     languages: ['中文', '英语', '韩语'],
     editions: [
       {
         language: '中文',
         label: '中文',
         flag: '🇨🇳',
-        downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+        downloadUrl: '/samples/docs/sparkone_deck_zh.pdf',
         previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
-        fileSize: '55.8 MB',
-        fileFormatName: 'PPTX / PDF'
+        fileSize: '2.26 MB',
+        fileFormatName: 'PDF 高清版'
       },
       {
         language: '英语',
         label: 'English',
         flag: '🇺🇸',
-        downloadUrl: '/samples/courseware/courseware_en_cover.jpg',
+        downloadUrl: '/samples/docs/sparkone_deck_en.pdf',
         previewUrl: '/samples/courseware/courseware_en_cover.jpg',
-        fileSize: '58.2 MB',
-        fileFormatName: 'PPTX / PDF'
+        fileSize: '1.76 MB',
+        fileFormatName: 'PDF 高清版'
       },
       {
         language: '韩语',
         label: '한국어',
         flag: '🇰🇷',
-        downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+        downloadUrl: '/samples/docs/sparkone_deck_ko.pdf',
         previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
-        fileSize: '52.4 MB',
-        fileFormatName: 'PDF / PPTX'
+        fileSize: '2.22 MB',
+        fileFormatName: 'PDF 高清版'
       }
     ],
     fileType: 'pdf',
-    fileFormatName: 'PPTX / PDF',
-    fileSize: '55.8 MB',
-    downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+    fileFormatName: 'PDF 高清版',
+    fileSize: '2.26 MB',
+    downloadUrl: '/samples/docs/sparkone_deck_zh.pdf',
     previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
     updatedAt: '2026-09-20',
     downloadsCount: 8410,
@@ -51,39 +51,19 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
   },
   {
     id: 'res-cw-02',
-    title: 'SPARK 全球智能金融与资产配置逻辑简介',
+    title: 'SPARK 全球标准化讲课课件 (精炼速查版)',
     zone: 'courseware',
-    subCategory: '金融简介',
-    description: '核心量化策略、AI风控引擎及全球多边资产配置机制权威解析课件。',
-    languages: ['中文', '英语'],
-    editions: [
-      {
-        language: '中文',
-        label: '中文',
-        flag: '🇨🇳',
-        downloadUrl: '/samples/courseware/courseware_en_cover.jpg',
-        previewUrl: '/samples/courseware/courseware_en_cover.jpg',
-        fileSize: '14.2 MB',
-        fileFormatName: 'PDF'
-      },
-      {
-        language: '英语',
-        label: 'English',
-        flag: '🇺🇸',
-        downloadUrl: '/samples/courseware/courseware_en_cover.jpg',
-        previewUrl: '/samples/courseware/courseware_en_cover.jpg',
-        fileSize: '15.1 MB',
-        fileFormatName: 'PDF'
-      }
-    ],
+    subCategory: '项目介绍',
+    description: '官方标准化讲课精编课件，提炼业务要点与核心逻辑，轻量化极速下载。',
+    languages: ['中文'],
     fileType: 'pdf',
-    fileFormatName: 'PDF 高清版',
-    fileSize: '14.2 MB',
-    downloadUrl: '/samples/courseware/courseware_en_cover.jpg',
+    fileFormatName: 'PDF 精编版',
+    fileSize: '338 KB',
+    downloadUrl: '/samples/docs/sparkone_standard_courseware.pdf',
     previewUrl: '/samples/courseware/courseware_en_cover.jpg',
     updatedAt: '2026-09-18',
     downloadsCount: 4210,
-    tags: ['金融简介', '量化模型', '风控架构']
+    tags: ['精炼课件', '轻量化', '标准化']
   },
   {
     id: 'res-cw-03',
@@ -91,31 +71,11 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
     zone: 'courseware',
     subCategory: '金融简介',
     description: '宏观数字经济演变与 Web3 财富配置趋势白皮书，官方研究团队重磅出品。',
-    languages: ['中文', '英语'],
-    editions: [
-      {
-        language: '中文',
-        label: '中文',
-        flag: '🇨🇳',
-        downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
-        previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
-        fileSize: '8.6 MB',
-        fileFormatName: 'PDF'
-      },
-      {
-        language: '英语',
-        label: 'English',
-        flag: '🇺🇸',
-        downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
-        previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
-        fileSize: '9.2 MB',
-        fileFormatName: 'PDF'
-      }
-    ],
+    languages: ['中文'],
     fileType: 'pdf',
-    fileFormatName: 'PDF 报告',
-    fileSize: '8.6 MB',
-    downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+    fileFormatName: 'PDF 白皮书',
+    fileSize: '2.07 MB',
+    downloadUrl: '/samples/docs/spark_wealth_report_zh.pdf',
     previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
     updatedAt: '2026-09-16',
     downloadsCount: 3100,
@@ -307,7 +267,7 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         downloadUrl: '/samples/posters/公司展架英文.png',
         previewUrl: '/samples/posters/公司展架英文.png',
         fileSize: '2.14 MB',
-        fileFormatName: 'PNG / PDF'
+        fileFormatName: 'PNG 高清印刷'
       },
       {
         language: '越南语',
@@ -316,7 +276,7 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         downloadUrl: '/samples/posters/公司展架越南语.png',
         previewUrl: '/samples/posters/公司展架越南语.png',
         fileSize: '2.07 MB',
-        fileFormatName: 'PNG / PDF'
+        fileFormatName: 'PNG 高清印刷'
       },
       {
         language: '印尼语',
@@ -325,11 +285,11 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         downloadUrl: '/samples/posters/公司文化展架马来文.png',
         previewUrl: '/samples/posters/公司文化展架马来文.png',
         fileSize: '2.20 MB',
-        fileFormatName: 'PNG / PDF'
+        fileFormatName: 'PNG 高清印刷'
       }
     ],
     fileType: 'image',
-    fileFormatName: 'PNG / PDF',
+    fileFormatName: 'PNG 高清印刷',
     fileSize: '2.14 MB',
     downloadUrl: '/samples/posters/公司展架英文.png',
     previewUrl: '/samples/posters/公司展架英文.png',
@@ -346,12 +306,28 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
     languages: ['英语'],
     fileType: 'pdf',
     fileFormatName: 'PDF 盖章件',
-    fileSize: '1.24 MB',
-    downloadUrl: '/brand/spark_3d_metal_logo.jpg',
+    fileSize: '29 KB',
+    downloadUrl: '/samples/docs/spark_msb_license.pdf',
     previewUrl: '/brand/spark_3d_metal_logo.jpg',
     updatedAt: '2026-09-18',
     downloadsCount: 5800,
-    tags: ['MSB牌照', '官方备案', '合规合法']
+    tags: ['MSB牌照', '官方备案', '合规合法', '轻量PDF']
+  },
+  {
+    id: 'res-mat-07',
+    title: 'SPARK UNION CAPITAL 美国政府公司注册执照',
+    zone: 'assets',
+    subCategory: '合规资质',
+    description: 'SPARK UNION CAPITAL INC. 美国科罗拉多州政府核发官方企业营业执照证明文件。',
+    languages: ['英语'],
+    fileType: 'pdf',
+    fileFormatName: 'PDF 官方执照',
+    fileSize: '215 KB',
+    downloadUrl: '/samples/docs/spark_business_license.pdf',
+    previewUrl: '/brand/spark_3d_metal_logo.jpg',
+    updatedAt: '2026-09-18',
+    downloadsCount: 4620,
+    tags: ['营业执照', '官方认证', '企业背书', '轻量PDF']
   },
 
   // ==========================================
