@@ -26,6 +26,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
   onDownload,
 }) => {
   const [selectedEditionIndex, setSelectedEditionIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const hasEditions = Array.isArray(item.editions) && item.editions.length > 0;
   const currentEdition = hasEditions ? item.editions![selectedEditionIndex] : null;
@@ -97,12 +98,24 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
           className={`relative w-full ${getAspectRatioClass()} bg-black/60 overflow-hidden cursor-pointer`}
           onClick={handlePreviewClick}
         >
+          {/* Loading Skeleton Shimmer */}
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-950/30 via-[#1b1338] to-purple-950/30 animate-pulse flex items-center justify-center">
+              <div className="w-5 h-5 border-2 border-purple-500/30 border-t-purple-400 rounded-full animate-spin" />
+            </div>
+          )}
+
           {/* Real Thumbnail Image */}
           <img 
             src={activePreviewUrl} 
             alt={item.title}
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out opacity-90 group-hover:opacity-100"
+            className={`w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500 ease-out ${
+              imageLoaded ? 'opacity-90 group-hover:opacity-100' : 'opacity-0'
+            }`}
             loading="lazy"
+            decoding="async"
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageLoaded(true)}
           />
 
           {/* Gradient Overlay for Text Readability */}

@@ -16,8 +16,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         language: '中文',
         label: '中文',
         flag: '🇨🇳',
-        downloadUrl: '/samples/courseware/courseware_zh_cover.png',
-        previewUrl: '/samples/courseware/courseware_zh_cover.png',
+        downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+        previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
         fileSize: '55.8 MB',
         fileFormatName: 'PPTX / PDF'
       },
@@ -25,8 +25,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         language: '英语',
         label: 'English',
         flag: '🇺🇸',
-        downloadUrl: '/samples/courseware/courseware_en_cover.png',
-        previewUrl: '/samples/courseware/courseware_en_cover.png',
+        downloadUrl: '/samples/courseware/courseware_en_cover.jpg',
+        previewUrl: '/samples/courseware/courseware_en_cover.jpg',
         fileSize: '58.2 MB',
         fileFormatName: 'PPTX / PDF'
       },
@@ -34,8 +34,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         language: '韩语',
         label: '한국어',
         flag: '🇰🇷',
-        downloadUrl: '/samples/courseware/courseware_zh_cover.png',
-        previewUrl: '/samples/courseware/courseware_zh_cover.png',
+        downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+        previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
         fileSize: '52.4 MB',
         fileFormatName: 'PDF / PPTX'
       }
@@ -43,8 +43,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
     fileType: 'pdf',
     fileFormatName: 'PPTX / PDF',
     fileSize: '55.8 MB',
-    downloadUrl: '/samples/courseware/courseware_zh_cover.png',
-    previewUrl: '/samples/courseware/courseware_zh_cover.png',
+    downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+    previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
     updatedAt: '2026-09-20',
     downloadsCount: 8410,
     tags: ['项目介绍', '标准课件', '三语母版', '金牌宣讲']
@@ -61,8 +61,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         language: '中文',
         label: '中文',
         flag: '🇨🇳',
-        downloadUrl: '/samples/courseware/courseware_en_cover.png',
-        previewUrl: '/samples/courseware/courseware_en_cover.png',
+        downloadUrl: '/samples/courseware/courseware_en_cover.jpg',
+        previewUrl: '/samples/courseware/courseware_en_cover.jpg',
         fileSize: '14.2 MB',
         fileFormatName: 'PDF'
       },
@@ -70,8 +70,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         language: '英语',
         label: 'English',
         flag: '🇺🇸',
-        downloadUrl: '/samples/courseware/courseware_en_cover.png',
-        previewUrl: '/samples/courseware/courseware_en_cover.png',
+        downloadUrl: '/samples/courseware/courseware_en_cover.jpg',
+        previewUrl: '/samples/courseware/courseware_en_cover.jpg',
         fileSize: '15.1 MB',
         fileFormatName: 'PDF'
       }
@@ -79,8 +79,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
     fileType: 'pdf',
     fileFormatName: 'PDF 高清版',
     fileSize: '14.2 MB',
-    downloadUrl: '/samples/courseware/courseware_en_cover.png',
-    previewUrl: '/samples/courseware/courseware_en_cover.png',
+    downloadUrl: '/samples/courseware/courseware_en_cover.jpg',
+    previewUrl: '/samples/courseware/courseware_en_cover.jpg',
     updatedAt: '2026-09-18',
     downloadsCount: 4210,
     tags: ['金融简介', '量化模型', '风控架构']
@@ -97,8 +97,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         language: '中文',
         label: '中文',
         flag: '🇨🇳',
-        downloadUrl: '/samples/courseware/courseware_zh_cover.png',
-        previewUrl: '/samples/courseware/courseware_zh_cover.png',
+        downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+        previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
         fileSize: '8.6 MB',
         fileFormatName: 'PDF'
       },
@@ -106,8 +106,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
         language: '英语',
         label: 'English',
         flag: '🇺🇸',
-        downloadUrl: '/samples/courseware/courseware_zh_cover.png',
-        previewUrl: '/samples/courseware/courseware_zh_cover.png',
+        downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+        previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
         fileSize: '9.2 MB',
         fileFormatName: 'PDF'
       }
@@ -115,8 +115,8 @@ export const INITIAL_RESOURCES: ResourceItem[] = [
     fileType: 'pdf',
     fileFormatName: 'PDF 报告',
     fileSize: '8.6 MB',
-    downloadUrl: '/samples/courseware/courseware_zh_cover.png',
-    previewUrl: '/samples/courseware/courseware_zh_cover.png',
+    downloadUrl: '/samples/courseware/courseware_zh_cover.jpg',
+    previewUrl: '/samples/courseware/courseware_zh_cover.jpg',
     updatedAt: '2026-09-16',
     downloadsCount: 3100,
     tags: ['财富报告', '行业洞察', '白皮书']
