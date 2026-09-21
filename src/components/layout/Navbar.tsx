@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   Globe, 
-  Search
+  Search,
+  ChevronDown
 } from 'lucide-react';
 import type { SupportedLanguage } from '../../types/resource';
 
@@ -31,6 +32,25 @@ export const Navbar: React.FC<NavbarProps> = ({
   onSearchChange,
   totalCount,
 }) => {
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Click outside to close dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target as Node)) {
+        setIsLangMenuOpen(false);
+      }
+    };
+
+    if (isLangMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLangMenuOpen]);
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-[#07050d]/85 border-b border-purple-500/15 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
@@ -69,13 +89,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="快速搜索物料、3D Logo、合规执照、公益现场图包..."
+              placeholder="快速搜索课件、海报、3D Logo、视频、相册..."
               className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-purple-950/20 border border-purple-500/20 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-400/60 focus:ring-2 focus:ring-purple-500/20 transition-all"
             />
             {searchQuery && (
               <button 
                 onClick={() => onSearchChange('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white cursor-pointer"
               >
                 ✕
               </button>
@@ -95,39 +115,60 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span>实时同步已就绪</span>
           </div>
 
-          {/* Language Selector */}
-          <div className="relative group">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-slate-300 transition-all cursor-pointer">
+          {/* Language Selector (Click to toggle & stays open) */}
+          <div className="relative" ref={langDropdownRef}>
+            <button
+              onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer border ${
+                isLangMenuOpen
+                  ? 'bg-purple-600/30 text-white border-purple-400/60 shadow-[0_0_15px_rgba(124,58,237,0.3)]'
+                  : 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border-white/10'
+              }`}
+            >
               <Globe className="w-3.5 h-3.5 text-purple-400" />
-              <span className="hidden sm:inline">
-                {LANGUAGES.find(l => l.id === selectedLanguage)?.label || '全语言物料'}
+              <span>
+                {LANGUAGES.find(l => l.id === selectedLanguage)?.flag}{' '}
+                <span className="hidden sm:inline">
+                  {LANGUAGES.find(l => l.id === selectedLanguage)?.label || '全语言物料'}
+                </span>
               </span>
-              <span className="sm:hidden">
-                {LANGUAGES.find(l => l.id === selectedLanguage)?.flag || '🌐'}
-              </span>
-            </div>
+              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isLangMenuOpen ? 'rotate-180 text-purple-300' : ''}`} />
+            </button>
 
-            {/* Dropdown Menu */}
-            <div className="absolute right-0 top-full mt-2 w-48 py-2 rounded-xl bg-[#0f0a1d]/95 backdrop-blur-2xl border border-purple-500/25 shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all transform origin-top-right z-50">
-              <div className="px-3 py-1.5 text-[10px] text-slate-400 font-semibold uppercase tracking-wider border-b border-purple-500/10">
-                选择语言市场
+            {/* Dropdown Menu (Fixed open state) */}
+            {isLangMenuOpen && (
+              <div className="absolute right-0 top-full mt-2 w-52 py-2 rounded-2xl bg-[#0e091c] backdrop-blur-2xl border border-purple-500/35 shadow-[0_15px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(124,58,237,0.25)] z-50 animate-in fade-in zoom-in-95 duration-150">
+                <div className="px-3.5 py-2 text-[11px] text-slate-400 font-bold uppercase tracking-wider border-b border-purple-500/15 flex items-center justify-between">
+                  <span>选择语言市场</span>
+                  <span className="text-[10px] text-purple-400 font-mono">8 个选项</span>
+                </div>
+                
+                <div className="p-1 space-y-0.5 max-h-72 overflow-y-auto">
+                  {LANGUAGES.map((lang) => (
+                    <button
+                      key={lang.id}
+                      onClick={() => {
+                        onSelectLanguage(lang.id);
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`w-full px-3 py-2.5 rounded-xl text-left text-xs flex items-center justify-between transition-all cursor-pointer ${
+                        selectedLanguage === lang.id 
+                          ? 'text-white font-bold bg-purple-600/30 border border-purple-400/40 shadow-sm' 
+                          : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <span className="text-sm">{lang.flag}</span>
+                        <span>{lang.label}</span>
+                      </span>
+                      {selectedLanguage === lang.id && (
+                        <span className="text-purple-400 text-xs font-bold">✓</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
-              {LANGUAGES.map((lang) => (
-                <button
-                  key={lang.id}
-                  onClick={() => onSelectLanguage(lang.id)}
-                  className={`w-full px-3 py-2 text-left text-xs flex items-center justify-between hover:bg-purple-600/20 transition-colors ${
-                    selectedLanguage === lang.id ? 'text-purple-300 font-bold bg-purple-600/15' : 'text-slate-300'
-                  }`}
-                >
-                  <span className="flex items-center gap-2">
-                    <span>{lang.flag}</span>
-                    <span>{lang.label}</span>
-                  </span>
-                  {selectedLanguage === lang.id && <span className="text-purple-400 text-xs">✓</span>}
-                </button>
-              ))}
-            </div>
+            )}
           </div>
 
         </div>
