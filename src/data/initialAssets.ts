@@ -1,0 +1,589 @@
+import type { ResourceItem } from '../types/resource';
+
+export const INITIAL_RESOURCES: ResourceItem[] = [
+  // ==========================================
+  // 1. 课件区 (同一个档案，多语言聚合成单卡 + 语言 small button)
+  // ==========================================
+  {
+    id: 'res-cw-01',
+    title: 'SPARK ONE 项目介绍标准讲课课件 v2.3',
+    zone: 'courseware',
+    subCategory: '项目介绍',
+    description: '官方金牌讲师标准演讲 PPTX/PDF 母版，深入阐述 SparkOne 商业模式、全球生态布局与产品矩阵。',
+    languages: ['中文', '英语', '韩语'],
+    editions: [
+      {
+        language: '中文',
+        label: '中文',
+        flag: '🇨🇳',
+        downloadUrl: '/samples/courseware/courseware_zh_cover.png',
+        previewUrl: '/samples/courseware/courseware_zh_cover.png',
+        fileSize: '55.8 MB',
+        fileFormatName: 'PPTX / PDF'
+      },
+      {
+        language: '英语',
+        label: 'English',
+        flag: '🇺🇸',
+        downloadUrl: '/samples/courseware/courseware_en_cover.png',
+        previewUrl: '/samples/courseware/courseware_en_cover.png',
+        fileSize: '58.2 MB',
+        fileFormatName: 'PPTX / PDF'
+      },
+      {
+        language: '韩语',
+        label: '한국어',
+        flag: '🇰🇷',
+        downloadUrl: '/samples/courseware/courseware_zh_cover.png',
+        previewUrl: '/samples/courseware/courseware_zh_cover.png',
+        fileSize: '52.4 MB',
+        fileFormatName: 'PDF / PPTX'
+      }
+    ],
+    fileType: 'pdf',
+    fileFormatName: 'PPTX / PDF',
+    fileSize: '55.8 MB',
+    downloadUrl: '/samples/courseware/courseware_zh_cover.png',
+    previewUrl: '/samples/courseware/courseware_zh_cover.png',
+    updatedAt: '2026-09-20',
+    downloadsCount: 8410,
+    tags: ['项目介绍', '标准课件', '三语母版', '金牌宣讲']
+  },
+  {
+    id: 'res-cw-02',
+    title: 'SPARK 全球智能金融与资产配置逻辑简介',
+    zone: 'courseware',
+    subCategory: '金融简介',
+    description: '核心量化策略、AI风控引擎及全球多边资产配置机制权威解析课件。',
+    languages: ['中文', '英语'],
+    editions: [
+      {
+        language: '中文',
+        label: '中文',
+        flag: '🇨🇳',
+        downloadUrl: '/samples/courseware/courseware_en_cover.png',
+        previewUrl: '/samples/courseware/courseware_en_cover.png',
+        fileSize: '14.2 MB',
+        fileFormatName: 'PDF'
+      },
+      {
+        language: '英语',
+        label: 'English',
+        flag: '🇺🇸',
+        downloadUrl: '/samples/courseware/courseware_en_cover.png',
+        previewUrl: '/samples/courseware/courseware_en_cover.png',
+        fileSize: '15.1 MB',
+        fileFormatName: 'PDF'
+      }
+    ],
+    fileType: 'pdf',
+    fileFormatName: 'PDF 高清版',
+    fileSize: '14.2 MB',
+    downloadUrl: '/samples/courseware/courseware_en_cover.png',
+    previewUrl: '/samples/courseware/courseware_en_cover.png',
+    updatedAt: '2026-09-18',
+    downloadsCount: 4210,
+    tags: ['金融简介', '量化模型', '风控架构']
+  },
+  {
+    id: 'res-cw-03',
+    title: 'SPARK 全球数字财富深度解析白皮书',
+    zone: 'courseware',
+    subCategory: '金融简介',
+    description: '宏观数字经济演变与 Web3 财富配置趋势白皮书，官方研究团队重磅出品。',
+    languages: ['中文', '英语'],
+    editions: [
+      {
+        language: '中文',
+        label: '中文',
+        flag: '🇨🇳',
+        downloadUrl: '/samples/courseware/courseware_zh_cover.png',
+        previewUrl: '/samples/courseware/courseware_zh_cover.png',
+        fileSize: '8.6 MB',
+        fileFormatName: 'PDF'
+      },
+      {
+        language: '英语',
+        label: 'English',
+        flag: '🇺🇸',
+        downloadUrl: '/samples/courseware/courseware_zh_cover.png',
+        previewUrl: '/samples/courseware/courseware_zh_cover.png',
+        fileSize: '9.2 MB',
+        fileFormatName: 'PDF'
+      }
+    ],
+    fileType: 'pdf',
+    fileFormatName: 'PDF 报告',
+    fileSize: '8.6 MB',
+    downloadUrl: '/samples/courseware/courseware_zh_cover.png',
+    previewUrl: '/samples/courseware/courseware_zh_cover.png',
+    updatedAt: '2026-09-16',
+    downloadsCount: 3100,
+    tags: ['财富报告', '行业洞察', '白皮书']
+  },
+
+  // ==========================================
+  // 2. 市场宣传 (各种海报，长图)
+  // ==========================================
+  {
+    id: 'res-mkt-01',
+    title: 'SPARK 会员成长与全球权益体系宣发长图',
+    zone: 'marketing',
+    subCategory: '长图',
+    description: '全景解析会员成长梯队、返佣激励、社群赋能及VIP生态特权，适合社群高频宣发。',
+    languages: ['中文', '英语', '韩语'],
+    editions: [
+      {
+        language: '中文',
+        label: '中文',
+        flag: '🇨🇳',
+        downloadUrl: '/samples/posters/GrowthPlan-ZH.jpg',
+        previewUrl: '/samples/posters/GrowthPlan-ZH.jpg',
+        fileSize: '1.2 MB',
+        fileFormatName: 'JPG 高清长图'
+      },
+      {
+        language: '英语',
+        label: 'English',
+        flag: '🇺🇸',
+        downloadUrl: '/samples/posters/GrowthPlan-EN.jpg',
+        previewUrl: '/samples/posters/GrowthPlan-EN.jpg',
+        fileSize: '1.3 MB',
+        fileFormatName: 'JPG 高清长图'
+      },
+      {
+        language: '韩语',
+        label: '한국어',
+        flag: '🇰🇷',
+        downloadUrl: '/samples/posters/GrowthPlan-KO.jpg',
+        previewUrl: '/samples/posters/GrowthPlan-KO.jpg',
+        fileSize: '1.16 MB',
+        fileFormatName: 'JPG 高清长图'
+      }
+    ],
+    fileType: 'image',
+    fileFormatName: 'JPG 高清长图',
+    fileSize: '1.2 MB',
+    downloadUrl: '/samples/posters/GrowthPlan-ZH.jpg',
+    previewUrl: '/samples/posters/GrowthPlan-ZH.jpg',
+    updatedAt: '2026-09-19',
+    downloadsCount: 12240,
+    tags: ['权益长图', '社群宣发', '三语高清', 'VIP生态'],
+    dimensions: '1080 x 4800 px'
+  },
+  {
+    id: 'res-mkt-02',
+    title: 'SPARK 全球品牌活动海报系列 - EN-01 (Brand Horizon)',
+    zone: 'marketing',
+    subCategory: '各种海报',
+    description: '极简高端黑紫金融科技主视觉海报，4K超高分辨率，适合线下峰会大屏与灯箱。',
+    languages: ['英语'],
+    fileType: 'image',
+    fileFormatName: 'JPG 印刷级',
+    fileSize: '73.7 MB',
+    downloadUrl: '/samples/posters/EN-01.jpg',
+    previewUrl: '/samples/posters/EN-01.jpg',
+    updatedAt: '2026-09-18',
+    downloadsCount: 3450,
+    tags: ['官方海报', '4K印刷', '主视觉'],
+    dimensions: '3508 x 4960 px'
+  },
+  {
+    id: 'res-mkt-03',
+    title: 'SPARK 全球官方社媒推广海报 - EN-02 (Next Generation)',
+    zone: 'marketing',
+    subCategory: '各种海报',
+    description: '聚焦“智能金融 • 卓越明天”核心价值观的品牌理念海报。',
+    languages: ['英语'],
+    fileType: 'image',
+    fileFormatName: 'JPG 印刷级',
+    fileSize: '39.6 MB',
+    downloadUrl: '/samples/posters/EN-02.jpg',
+    previewUrl: '/samples/posters/EN-02.jpg',
+    updatedAt: '2026-09-18',
+    downloadsCount: 2980,
+    tags: ['理念海报', '宣发物料', '印刷原图'],
+    dimensions: '3508 x 4960 px'
+  },
+  {
+    id: 'res-mkt-04',
+    title: 'SPARK 尊享全球峰会海报 - EN-03 (Union Power)',
+    zone: 'marketing',
+    subCategory: '各种海报',
+    description: '高端私享会与区域城市发布会定制竖版视觉海报。',
+    languages: ['英语'],
+    fileType: 'image',
+    fileFormatName: 'JPG 印刷级',
+    fileSize: '49.7 MB',
+    downloadUrl: '/samples/posters/EN-03.jpg',
+    previewUrl: '/samples/posters/EN-03.jpg',
+    updatedAt: '2026-09-18',
+    downloadsCount: 2710,
+    tags: ['峰会海报', '活动物料', '高端黑金'],
+    dimensions: '3508 x 4960 px'
+  },
+
+  // ==========================================
+  // 3. 素材 (logo, 易拉宝)
+  // ==========================================
+  {
+    id: 'res-mat-01',
+    title: 'SPARK 3D立体金属徽标 (官方高光倒角立体标)',
+    zone: 'assets',
+    subCategory: 'Logo',
+    description: '全新官方 3D 棱面流光金属立体标，曜石深黑底色配合高光倒角与电光紫辉，专用于权威展示。',
+    languages: ['英语', '中文'],
+    fileType: 'image',
+    fileFormatName: 'PNG / JPG',
+    fileSize: '4.8 MB',
+    downloadUrl: '/brand/spark_3d_metal_logo.jpg',
+    previewUrl: '/brand/spark_3d_metal_logo.jpg',
+    updatedAt: '2026-09-21',
+    downloadsCount: 6540,
+    tags: ['官方徽标', '3D金属', '电光紫', 'VI标准'],
+    dimensions: '4096 x 4096 px'
+  },
+  {
+    id: 'res-mat-02',
+    title: 'SPARK 曜黑紫金金属立体标 (透明底 PNG)',
+    zone: 'assets',
+    subCategory: 'Logo',
+    description: '透明底高清大图，深邃黑曜石搭配紫罗兰金属质感与边缘倒角反光，可直接拖入任意设计背景。',
+    languages: ['英语', '中文'],
+    fileType: 'image',
+    fileFormatName: 'PNG 透明底',
+    fileSize: '1.08 MB',
+    downloadUrl: '/brand/Spark_PurpleBlack_Metal.png',
+    previewUrl: '/brand/Spark_PurpleBlack_Metal.png',
+    updatedAt: '2026-09-20',
+    downloadsCount: 4890,
+    tags: ['透明底', '紫黑金属', '免抠图'],
+    dimensions: '3000 x 3000 px'
+  },
+  {
+    id: 'res-mat-03',
+    title: 'SPARK 梦幻紫晶流光徽标 (Web3 大屏标)',
+    zone: 'assets',
+    subCategory: 'Logo',
+    description: '水晶折射质感与紫色光晕渲染，专用于高端数字大屏与 Web3 界面展示。',
+    languages: ['英语'],
+    fileType: 'image',
+    fileFormatName: 'PNG 透明底',
+    fileSize: '1.14 MB',
+    downloadUrl: '/brand/Spark_purple_Crystal.png',
+    previewUrl: '/brand/Spark_purple_Crystal.png',
+    updatedAt: '2026-09-20',
+    downloadsCount: 3120,
+    tags: ['紫晶质感', '流光特效', '数字大屏']
+  },
+  {
+    id: 'res-mat-04',
+    title: 'SPARK 奢华黑金与电镀黄金 Logo 合集包',
+    zone: 'assets',
+    subCategory: 'Logo',
+    description: '黄金电镀与尊贵黑金两款定制质感 Logo，满足高净值用户俱乐部及高端峰会场景。',
+    languages: ['英语', '中文'],
+    fileType: 'archive',
+    fileFormatName: 'ZIP 合集包',
+    fileSize: '2.05 MB',
+    downloadUrl: '/brand/Spark_Gold_Luxury.png',
+    previewUrl: '/brand/Spark_Gold_Luxury.png',
+    updatedAt: '2026-09-20',
+    downloadsCount: 2890,
+    tags: ['黑金版本', '黄金质感', 'VIP专享']
+  },
+  {
+    id: 'res-mat-05',
+    title: 'SPARK 官方多语言标准易拉宝展架 (80x200cm 印刷套包)',
+    zone: 'assets',
+    subCategory: '易拉宝',
+    description: '标准 80x200cm 易拉宝印刷高分辨率矢量文件，支持多语言快速切换与即刻出图。',
+    languages: ['英语', '越南语', '印尼语'],
+    editions: [
+      {
+        language: '英语',
+        label: 'English',
+        flag: '🇺🇸',
+        downloadUrl: '/samples/posters/公司展架英文.png',
+        previewUrl: '/samples/posters/公司展架英文.png',
+        fileSize: '2.14 MB',
+        fileFormatName: 'PNG / PDF'
+      },
+      {
+        language: '越南语',
+        label: 'Tiếng Việt',
+        flag: '🇻🇳',
+        downloadUrl: '/samples/posters/公司展架越南语.png',
+        previewUrl: '/samples/posters/公司展架越南语.png',
+        fileSize: '2.07 MB',
+        fileFormatName: 'PNG / PDF'
+      },
+      {
+        language: '印尼语',
+        label: 'Melayu/ID',
+        flag: '🇲🇾',
+        downloadUrl: '/samples/posters/公司文化展架马来文.png',
+        previewUrl: '/samples/posters/公司文化展架马来文.png',
+        fileSize: '2.20 MB',
+        fileFormatName: 'PNG / PDF'
+      }
+    ],
+    fileType: 'image',
+    fileFormatName: 'PNG / PDF',
+    fileSize: '2.14 MB',
+    downloadUrl: '/samples/posters/公司展架英文.png',
+    previewUrl: '/samples/posters/公司展架英文.png',
+    updatedAt: '2026-09-19',
+    downloadsCount: 6890,
+    tags: ['展架物料', '多语言易拉宝', '线下展会', '80x200cm']
+  },
+  {
+    id: 'res-mat-06',
+    title: '美国 FinCEN MSB 金融合规牌照官方权威备案件',
+    zone: 'assets',
+    subCategory: '合规资质',
+    description: '美国财政部金融犯罪执法网络颁发 MSB 牌照官方扫描高清件，权威合规背书。',
+    languages: ['英语'],
+    fileType: 'pdf',
+    fileFormatName: 'PDF 盖章件',
+    fileSize: '1.24 MB',
+    downloadUrl: '/brand/spark_3d_metal_logo.jpg',
+    previewUrl: '/brand/spark_3d_metal_logo.jpg',
+    updatedAt: '2026-09-18',
+    downloadsCount: 5800,
+    tags: ['MSB牌照', '官方备案', '合规合法']
+  },
+
+  // ==========================================
+  // 4. 视频区 (分类项目宣传片，活动片，公益片)
+  // ==========================================
+  {
+    id: 'res-vid-01',
+    title: 'SPARK 全球官方品牌形象大片 (1080P Cinema Promo)',
+    zone: 'videos',
+    subCategory: '项目宣传片',
+    description: '电影级品牌宣传大片，展示 Spark 核心科技、量化实力与全球宏伟布局，配备四语母语原声。',
+    languages: ['中文', '英语', '韩语', '日语'],
+    editions: [
+      {
+        language: '中文',
+        label: '中文原声',
+        flag: '🇨🇳',
+        downloadUrl: '/brand/spark_3d_metal_logo.jpg',
+        previewUrl: '/brand/spark_3d_metal_logo.jpg',
+        fileSize: '70.2 MB',
+        fileFormatName: 'MP4 1080P'
+      },
+      {
+        language: '英语',
+        label: 'English',
+        flag: '🇺🇸',
+        downloadUrl: '/brand/spark_3d_metal_logo.jpg',
+        previewUrl: '/brand/spark_3d_metal_logo.jpg',
+        fileSize: '74.3 MB',
+        fileFormatName: 'MP4 1080P'
+      },
+      {
+        language: '韩语',
+        label: '한국어',
+        flag: '🇰🇷',
+        downloadUrl: '/brand/spark_3d_metal_logo.jpg',
+        previewUrl: '/brand/spark_3d_metal_logo.jpg',
+        fileSize: '74.3 MB',
+        fileFormatName: 'MP4 1080P'
+      },
+      {
+        language: '日语',
+        label: '日本語',
+        flag: '🇯🇵',
+        downloadUrl: '/brand/spark_3d_metal_logo.jpg',
+        previewUrl: '/brand/spark_3d_metal_logo.jpg',
+        fileSize: '70.1 MB',
+        fileFormatName: 'MP4 1080P'
+      }
+    ],
+    fileType: 'video',
+    fileFormatName: 'MP4 1080P',
+    fileSize: '70.2 MB',
+    duration: '02:15',
+    downloadUrl: '/brand/spark_3d_metal_logo.jpg',
+    previewUrl: '/brand/spark_3d_metal_logo.jpg',
+    updatedAt: '2026-09-15',
+    downloadsCount: 15420,
+    tags: ['品牌大片', '四语原声', '1080P原画']
+  },
+  {
+    id: 'res-vid-02',
+    title: 'SPARK 3D 动态 LOGO 演绎光效片 (4K/60FPS Cinema Intro)',
+    zone: 'videos',
+    subCategory: '3D动效片',
+    description: '3D 金属粒子聚合与暗夜电光划破黑曜石的震撼片头，适合发布会与自制视频。',
+    languages: ['英语'],
+    fileType: 'video',
+    fileFormatName: 'MP4 4K',
+    fileSize: '11.4 MB',
+    duration: '00:15',
+    downloadUrl: '/brand/Spark_PurpleBlack_Metal.png',
+    previewUrl: '/brand/Spark_PurpleBlack_Metal.png',
+    updatedAt: '2026-09-20',
+    downloadsCount: 4980,
+    tags: ['4K动效', '片头片尾', '3D光效']
+  },
+  {
+    id: 'res-vid-03',
+    title: '越南孤儿与残障儿童温暖关爱现场纪实大片',
+    zone: 'videos',
+    subCategory: '公益片',
+    description: 'SparkOne 越南慈善基金现场纪实纪录短片，感动记录物资发放与爱心互动瞬间。',
+    languages: ['越南语', '中文'],
+    fileType: 'video',
+    fileFormatName: 'MP4 1080P',
+    fileSize: '509 MB',
+    duration: '03:40',
+    downloadUrl: '/samples/events/vietnam_aid_01.jpg',
+    previewUrl: '/samples/events/vietnam_aid_01.jpg',
+    updatedAt: '2026-09-15',
+    downloadsCount: 3820,
+    tags: ['越南纪实', '公益大片', '温暖关怀']
+  },
+  {
+    id: 'res-vid-04',
+    title: '泰国穆斯林地区孤儿院儿童公益行动纪实短片',
+    zone: 'videos',
+    subCategory: '公益片',
+    description: '走进泰国穆斯林地区孤儿机构，完整记录生活物资赞助与节日关怀现场。',
+    languages: ['泰语', '英语'],
+    fileType: 'video',
+    fileFormatName: 'MOV 1080P',
+    fileSize: '189 MB',
+    duration: '04:10',
+    downloadUrl: '/samples/events/thailand_orphanage_01.jpg',
+    previewUrl: '/samples/events/thailand_orphanage_01.jpg',
+    updatedAt: '2026-09-15',
+    downloadsCount: 2950,
+    tags: ['泰国公益', '现场纪实', '爱心同行']
+  },
+  {
+    id: 'res-vid-05',
+    title: '马来西亚关爱老人爱心公益活动纪实集锦',
+    zone: 'videos',
+    subCategory: '活动片',
+    description: '走访马来西亚老人安养院，志愿者与老人暖心长谈、送上营养品现场影像。',
+    languages: ['中文', '英语'],
+    fileType: 'video',
+    fileFormatName: 'MOV 1080P',
+    fileSize: '503 MB',
+    duration: '03:25',
+    downloadUrl: '/samples/events/malaysia_elderly_01.jpg',
+    previewUrl: '/samples/events/malaysia_elderly_01.jpg',
+    updatedAt: '2026-09-15',
+    downloadsCount: 3120,
+    tags: ['马来西亚', '关爱老人', '活动纪实']
+  },
+
+  // ==========================================
+  // 5. 活动照片区 (西非助学，越南，泰国，大马相册)
+  // ==========================================
+  {
+    id: 'res-album-01',
+    title: '西非尼日利亚爱心助学校园捐建全套现场纪实相册',
+    zone: 'events',
+    subCategory: '西非学校公益',
+    description: '走进尼日利亚偏远小学，捐赠课桌椅、学习用具及生活物资，包含 114 张现场单反高清实拍原图。',
+    languages: ['英语', '中文'],
+    fileType: 'archive',
+    fileFormatName: 'ZIP 相册包',
+    fileSize: '148 MB',
+    downloadUrl: '/samples/events/nigeria_school_01.jpg',
+    previewUrl: '/samples/events/nigeria_school_01.jpg',
+    updatedAt: '2026-09-19',
+    downloadsCount: 4560,
+    tags: ['西非助学', '单反原图', '爱心相册', '114张原图'],
+    photoCount: 114
+  },
+  {
+    id: 'res-album-02',
+    title: '越南政府部门及医院爱心食物捐赠现场相册',
+    zone: 'events',
+    subCategory: '越南食物捐赠',
+    description: '联合公立医院与政府民政部门，发放爱心食物与营养物资，包含 92 张现场纪实。',
+    languages: ['越南语', '中文'],
+    fileType: 'archive',
+    fileFormatName: 'ZIP 相册包',
+    fileSize: '112 MB',
+    downloadUrl: '/samples/events/vietnam_aid_01.jpg',
+    previewUrl: '/samples/events/vietnam_aid_01.jpg',
+    updatedAt: '2026-09-18',
+    downloadsCount: 3890,
+    tags: ['越南公益', '医院食品捐赠', '92张原图'],
+    photoCount: 92
+  },
+  {
+    id: 'res-album-03',
+    title: '泰国穆斯林地区孤儿院儿童爱心关怀现场相册',
+    zone: 'events',
+    subCategory: '泰国孤儿助学',
+    description: '探访穆斯林社区孤儿院，为孩子们送去书包与成长陪伴，包含 87 张温情纪实原图。',
+    languages: ['泰语', '英语', '中文'],
+    fileType: 'archive',
+    fileFormatName: 'ZIP 相册包',
+    fileSize: '95 MB',
+    downloadUrl: '/samples/events/thailand_orphanage_01.jpg',
+    previewUrl: '/samples/events/thailand_orphanage_01.jpg',
+    updatedAt: '2026-09-17',
+    downloadsCount: 3240,
+    tags: ['泰国公益', '孤儿关爱', '87张原图'],
+    photoCount: 87
+  },
+  {
+    id: 'res-album-04',
+    title: '马来西亚关爱孤寡老人安养院走访纪实相册',
+    zone: 'events',
+    subCategory: '马来西亚老人院',
+    description: '走访马来西亚老人安养中心，赠送日常营养生活包，包含 82 张现场原片。',
+    languages: ['英语', '中文'],
+    fileType: 'archive',
+    fileFormatName: 'ZIP 相册包',
+    fileSize: '88 MB',
+    downloadUrl: '/samples/events/malaysia_elderly_01.jpg',
+    previewUrl: '/samples/events/malaysia_elderly_01.jpg',
+    updatedAt: '2026-09-16',
+    downloadsCount: 2980,
+    tags: ['大马公益', '老人关怀', '82张原图'],
+    photoCount: 82
+  },
+  {
+    id: 'res-album-05',
+    title: '越南孤儿与残障儿童温暖关爱行动纪实相册',
+    zone: 'events',
+    subCategory: '越南助残助孤',
+    description: '关怀残疾与贫困特殊儿童，包含 66 张现场康复辅具赠送照片。',
+    languages: ['越南语', '中文'],
+    fileType: 'archive',
+    fileFormatName: 'ZIP 相册包',
+    fileSize: '76 MB',
+    downloadUrl: '/samples/events/vietnam_aid_01.jpg',
+    previewUrl: '/samples/events/vietnam_aid_01.jpg',
+    updatedAt: '2026-09-15',
+    downloadsCount: 2310,
+    tags: ['特殊儿童', '助残爱心', '66张原图'],
+    photoCount: 66
+  },
+  {
+    id: 'res-album-06',
+    title: '马来西亚初心弱势家园爱心走访相册',
+    zone: 'events',
+    subCategory: '马来西亚弱势家园',
+    description: '慰问弱势儿童家园，包含 21 张温馨现场合影与捐赠证明。',
+    languages: ['中文', '英语'],
+    fileType: 'archive',
+    fileFormatName: 'ZIP 相册包',
+    fileSize: '32 MB',
+    downloadUrl: '/samples/events/malaysia_elderly_01.jpg',
+    previewUrl: '/samples/events/malaysia_elderly_01.jpg',
+    updatedAt: '2026-09-15',
+    downloadsCount: 1890,
+    tags: ['弱势家园', '企业责任', '21张原图'],
+    photoCount: 21
+  }
+];
