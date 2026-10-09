@@ -114,7 +114,19 @@ export const App: React.FC = () => {
 
       // Language filter
       if (selectedLanguage !== 'All') {
-        if (!item.languages.includes(selectedLanguage)) return false;
+        const matchesLang = item.languages.some(lang => {
+          if (lang === selectedLanguage) return true;
+          if ((selectedLanguage === '中文简体' || selectedLanguage === '中文') && (lang === '中文简体' || lang === '中文')) return true;
+          if (selectedLanguage === '中文繁体' && lang === '中文繁体') return true;
+          if ((selectedLanguage === '英文' || selectedLanguage === '英语') && (lang === '英文' || lang === '英语')) return true;
+          if ((selectedLanguage === '韩文' || selectedLanguage === '韩语') && (lang === '韩文' || lang === '韩语')) return true;
+          if ((selectedLanguage === '日文' || selectedLanguage === '日语') && (lang === '日文' || lang === '日语')) return true;
+          if ((selectedLanguage === '泰文' || selectedLanguage === '泰语') && (lang === '泰文' || lang === '泰语')) return true;
+          if ((selectedLanguage === '越南文' || selectedLanguage === '越南语') && (lang === '越南文' || lang === '越南语')) return true;
+          if ((selectedLanguage === '印尼文' || selectedLanguage === '印尼语') && (lang === '印尼文' || lang === '印尼语')) return true;
+          return false;
+        });
+        if (!matchesLang) return false;
       }
 
       // Format filter

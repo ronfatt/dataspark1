@@ -6,6 +6,14 @@ export type ZoneType =
   | 'events';     // 活动照片区 (各国公益活动相册)
 
 export type SupportedLanguage = 
+  | '中文简体'
+  | '中文繁体'
+  | '英文'
+  | '韩文'
+  | '日文'
+  | '泰文'
+  | '越南文'
+  | '印尼文'
   | '中文'
   | '英语'
   | '越南语'

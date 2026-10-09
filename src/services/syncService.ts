@@ -23,8 +23,18 @@ export function transformProjectToResources(project: any): ResourceItem[] {
   const items: ResourceItem[] = [];
   const { zone, subCategory } = mapProjectTypeToZone(project.type);
   const markets: SupportedLanguage[] = Array.isArray(project.markets) && project.markets.length > 0 
-    ? project.markets 
-    : ['中文'];
+    ? project.markets.map((m: string) => {
+        if (m === '中文' || m === '中文简体') return '中文简体';
+        if (m === '中文繁体') return '中文繁体';
+        if (m === '英语' || m === '英文') return '英文';
+        if (m === '韩语' || m === '韩文') return '韩文';
+        if (m === '日语' || m === '日文') return '日文';
+        if (m === '泰语' || m === '泰文') return '泰文';
+        if (m === '越南语' || m === '越南文') return '越南文';
+        if (m === '印尼语' || m === '印尼文') return '印尼文';
+        return m as SupportedLanguage;
+      })
+    : ['中文简体'];
 
   if (Array.isArray(project.assets) && project.assets.length > 0) {
     project.assets.forEach((asset: any, index: number) => {

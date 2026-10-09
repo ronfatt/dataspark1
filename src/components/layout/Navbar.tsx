@@ -16,13 +16,14 @@ interface NavbarProps {
 
 const LANGUAGES: { id: SupportedLanguage | 'All'; label: string; flag: string }[] = [
   { id: 'All', label: '全语言物料', flag: '🌐' },
-  { id: '中文', label: '中文 (ZH)', flag: '🇨🇳' },
-  { id: '英语', label: 'English (EN)', flag: '🇺🇸' },
-  { id: '越南语', label: 'Tiếng Việt (VN)', flag: '🇻🇳' },
-  { id: '印尼语', label: 'Bahasa Indonesia (ID)', flag: '🇮🇩' },
-  { id: '韩语', label: '한국어 (KO)', flag: '🇰🇷' },
-  { id: '日语', label: '日本語 (JA)', flag: '🇯🇵' },
-  { id: '泰语', label: 'ภาษาไทย (TH)', flag: '🇹🇭' },
+  { id: '中文简体', label: '中文简体 (SC)', flag: '🇨🇳' },
+  { id: '中文繁体', label: '中文繁体 (TC)', flag: '🇭🇰' },
+  { id: '英文', label: '英文 (EN)', flag: '🇺🇸' },
+  { id: '韩文', label: '韩文 (KO)', flag: '🇰🇷' },
+  { id: '日文', label: '日文 (JA)', flag: '🇯🇵' },
+  { id: '泰文', label: '泰文 (TH)', flag: '🇹🇭' },
+  { id: '越南文', label: '越南文 (VN)', flag: '🇻🇳' },
+  { id: '印尼文', label: '印尼文 (ID)', flag: '🇮🇩' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -166,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div className="hidden sm:block absolute right-0 top-full mt-2 w-52 py-2 rounded-2xl bg-[#0e091c] backdrop-blur-2xl border border-purple-500/35 shadow-[0_15px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(124,58,237,0.25)] z-50 animate-in fade-in zoom-in-95 duration-150">
                   <div className="px-3.5 py-2 text-[11px] text-slate-400 font-bold uppercase tracking-wider border-b border-purple-500/15 flex items-center justify-between">
                     <span>选择语言市场</span>
-                    <span className="text-[10px] text-purple-400 font-mono">8 个选项</span>
+                    <span className="text-[10px] text-purple-400 font-mono">8 种语言</span>
                   </div>
                   
                   <div className="p-1 space-y-0.5 max-h-72 overflow-y-auto">
