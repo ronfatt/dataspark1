@@ -1,7 +1,10 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
+import { useI18n } from '../../i18n/I18nContext';
 
 export const Footer: React.FC = () => {
+  const { t } = useI18n();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -31,7 +34,7 @@ export const Footer: React.FC = () => {
               GLOBAL VISION • INTELLIGENT FINANCE • A BETTER TOMORROW
             </p>
             <p className="text-[11px] text-slate-500 mt-1">
-              SPARK UNION CAPITAL 官方设计资产与全球宣发物料数据库
+              {t.nav.brandSubtitle}
             </p>
           </div>
 
@@ -40,9 +43,9 @@ export const Footer: React.FC = () => {
             <button
               onClick={scrollToTop}
               className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-purple-600/20 hover:bg-purple-600/40 border border-purple-500/30 text-purple-300 hover:text-white text-xs font-semibold transition-all cursor-pointer"
-              title="返回顶部"
+              title={t.dock.backToTop}
             >
-              <span>返回顶部</span>
+              <span>{t.dock.backToTop}</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -52,10 +55,10 @@ export const Footer: React.FC = () => {
         {/* Bottom copyright */}
         <div className="mt-8 pt-6 border-t border-purple-500/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
           <div>
-            © 2026 SPARK UNION CAPITAL INC. ALL RIGHTS RESERVED.
+            {t.footer.copyright}
           </div>
           <div className="flex items-center gap-4">
-            <span>MSB 官方合规认证编号备案</span>
+            <span>{t.footer.compliance}</span>
             <span>•</span>
             <span className="text-emerald-400/90 font-mono">SUPABASE REALTIME CONNECTED</span>
           </div>

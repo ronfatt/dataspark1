@@ -5,6 +5,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import type { SupportedLanguage } from '../../types/resource';
+import { useI18n } from '../../i18n/I18nContext';
 
 interface NavbarProps {
   selectedLanguage: SupportedLanguage | 'All';
@@ -15,15 +16,15 @@ interface NavbarProps {
 }
 
 const LANGUAGES: { id: SupportedLanguage | 'All'; label: string; flag: string }[] = [
-  { id: 'All', label: '全语言物料', flag: '🌐' },
+  { id: 'All', label: 'All', flag: '🌐' },
   { id: '中文简体', label: '中文简体 (SC)', flag: '🇨🇳' },
-  { id: '中文繁体', label: '中文繁体 (TC)', flag: '🇭🇰' },
-  { id: '英文', label: '英文 (EN)', flag: '🇺🇸' },
-  { id: '韩文', label: '韩文 (KO)', flag: '🇰🇷' },
-  { id: '日文', label: '日文 (JA)', flag: '🇯🇵' },
-  { id: '泰文', label: '泰文 (TH)', flag: '🇹🇭' },
-  { id: '越南文', label: '越南文 (VN)', flag: '🇻🇳' },
-  { id: '印尼文', label: '印尼文 (ID)', flag: '🇮🇩' },
+  { id: '中文繁体', label: '中文繁體 (TC)', flag: '🇭🇰' },
+  { id: '英文', label: 'English (EN)', flag: '🇺🇸' },
+  { id: '韩文', label: '한국어 (KO)', flag: '🇰🇷' },
+  { id: '日文', label: '日本語 (JA)', flag: '🇯🇵' },
+  { id: '泰文', label: 'ภาษาไทย (TH)', flag: '🇹🇭' },
+  { id: '越南文', label: 'Tiếng Việt (VN)', flag: '🇻🇳' },
+  { id: '印尼文', label: 'Bahasa Indonesia (ID)', flag: '🇮🇩' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -33,6 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onSearchChange,
   totalCount,
 }) => {
+  const { t } = useI18n();
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const langDropdownRef = useRef<HTMLDivElement>(null);
@@ -90,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </span>
               </div>
               <span className="hidden sm:block text-[10px] tracking-wider text-slate-400 uppercase font-medium">
-                Union Capital Inc. • 全球物料数据库
+                {t.nav.brandSubtitle}
               </span>
             </div>
           </div>
@@ -103,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="快速搜索课件、海报、3D Logo、视频、相册..."
+                placeholder={t.nav.searchPlaceholder}
                 className="w-full pl-10 pr-4 py-2 rounded-xl bg-purple-950/20 border border-purple-500/20 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-400/60 focus:ring-2 focus:ring-purple-500/20 transition-all"
               />
               {searchQuery && (
@@ -128,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? 'bg-purple-600/30 text-purple-300 border-purple-400/50'
                   : 'bg-white/5 text-slate-300 border-white/10'
               }`}
-              aria-label="搜索物料"
+              aria-label="Search"
             >
               <Search className="w-4 h-4" />
             </button>
@@ -139,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>实时同步已就绪</span>
+              <span>{t.nav.liveSyncReady}</span>
             </div>
 
             {/* Language Selector Trigger */}
@@ -156,7 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="text-xs">
                   {LANGUAGES.find(l => l.id === selectedLanguage)?.flag}{' '}
                   <span className="hidden sm:inline">
-                    {LANGUAGES.find(l => l.id === selectedLanguage)?.label || '全语言物料'}
+                    {selectedLanguage === 'All' ? t.nav.allLanguages : (LANGUAGES.find(l => l.id === selectedLanguage)?.label || t.nav.allLanguages)}
                   </span>
                 </span>
                 <ChevronDown className={`w-3 h-3 text-slate-400 transition-transform duration-200 ${isLangMenuOpen ? 'rotate-180 text-purple-300' : ''}`} />
@@ -166,8 +168,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               {isLangMenuOpen && (
                 <div className="hidden sm:block absolute right-0 top-full mt-2 w-52 py-2 rounded-2xl bg-[#0e091c] backdrop-blur-2xl border border-purple-500/35 shadow-[0_15px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(124,58,237,0.25)] z-50 animate-in fade-in zoom-in-95 duration-150">
                   <div className="px-3.5 py-2 text-[11px] text-slate-400 font-bold uppercase tracking-wider border-b border-purple-500/15 flex items-center justify-between">
-                    <span>选择语言市场</span>
-                    <span className="text-[10px] text-purple-400 font-mono">8 种语言</span>
+                    <span>{t.nav.selectLanguageTitle}</span>
+                    <span className="text-[10px] text-purple-400 font-mono">{t.nav.languageCount}</span>
                   </div>
                   
                   <div className="p-1 space-y-0.5 max-h-72 overflow-y-auto">
@@ -186,7 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       >
                         <span className="flex items-center gap-2.5">
                           <span className="text-sm">{lang.flag}</span>
-                          <span>{lang.label}</span>
+                          <span>{lang.id === 'All' ? t.nav.allLanguages : lang.label}</span>
                         </span>
                         {selectedLanguage === lang.id && (
                           <span className="text-purple-400 text-xs font-bold">✓</span>
@@ -211,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="搜索课件、海报、Logo、视频..."
+                placeholder={t.nav.searchPlaceholderMobile}
                 className="w-full pl-9 pr-8 py-2 rounded-xl bg-purple-950/40 border border-purple-500/30 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-purple-400"
               />
               {searchQuery && (
@@ -240,12 +242,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="w-12 h-1.5 rounded-full bg-slate-600 mx-auto mb-4" />
             
             <div className="flex items-center justify-between pb-3 mb-2 border-b border-purple-500/15">
-              <span className="text-sm font-bold text-white">选择物料语言市场</span>
+              <span className="text-sm font-bold text-white">{t.nav.selectLanguageTitle}</span>
               <button 
                 onClick={() => setIsLangMenuOpen(false)}
                 className="text-xs text-purple-400 font-semibold px-2 py-1"
               >
-                完成
+                {t.nav.done}
               </button>
             </div>
 

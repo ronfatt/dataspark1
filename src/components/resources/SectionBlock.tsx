@@ -1,5 +1,6 @@
 import React from 'react';
 import { FolderArchive, ArrowRight } from 'lucide-react';
+import { useI18n } from '../../i18n/I18nContext';
 
 interface SectionBlockProps {
   id: string;
@@ -20,6 +21,8 @@ export const SectionBlock: React.FC<SectionBlockProps> = ({
   onBatchDownload,
   children,
 }) => {
+  const { t } = useI18n();
+
   if (count === 0) return null;
 
   return (
@@ -40,7 +43,7 @@ export const SectionBlock: React.FC<SectionBlockProps> = ({
                 {title}
               </h2>
               <span className="px-2 py-0.2 sm:px-2.5 sm:py-0.5 rounded-full bg-purple-600/20 text-purple-300 text-[10px] sm:text-xs font-mono border border-purple-500/30">
-                {count} 份物料
+                {count} {t.zones.itemsCount}
               </span>
             </div>
             <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5 line-clamp-1 sm:line-clamp-none">
@@ -55,7 +58,7 @@ export const SectionBlock: React.FC<SectionBlockProps> = ({
           className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-[#140e29] hover:bg-[#1f1540] border border-purple-500/30 text-[11px] sm:text-xs font-semibold text-purple-300 hover:text-white transition-all shadow-sm cursor-pointer self-start sm:self-auto active:scale-95"
         >
           <FolderArchive className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400 shrink-0" />
-          <span>打包本区 ({count} 个源文件)</span>
+          <span>{t.zones.batchDownload} ({count})</span>
         </button>
 
       </div>

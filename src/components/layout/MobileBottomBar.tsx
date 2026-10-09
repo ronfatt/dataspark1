@@ -9,26 +9,28 @@ import {
   ArrowUp
 } from 'lucide-react';
 import type { ZoneType } from '../../types/resource';
+import { useI18n } from '../../i18n/I18nContext';
 
 interface MobileBottomBarProps {
   activeZone: ZoneType | 'all';
   onSelectZone: (zone: ZoneType | 'all') => void;
 }
 
-const DOCK_ITEMS: { id: ZoneType | 'all'; label: string; icon: React.FC<{ className?: string }> }[] = [
-  { id: 'all', label: '全部', icon: Layers },
-  { id: 'courseware', label: '课件', icon: FileText },
-  { id: 'marketing', label: '海报', icon: Megaphone },
-  { id: 'assets', label: '素材', icon: Sparkles },
-  { id: 'videos', label: '视频', icon: Film },
-  { id: 'events', label: '照片', icon: Camera },
-];
-
 export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({
   activeZone,
   onSelectZone,
 }) => {
+  const { t } = useI18n();
   const [showBackToTop, setShowBackToTop] = useState(false);
+
+  const dockItems: { id: ZoneType | 'all'; label: string; icon: React.FC<{ className?: string }> }[] = [
+    { id: 'all', label: t.dock.all, icon: Layers },
+    { id: 'courseware', label: t.dock.courseware, icon: FileText },
+    { id: 'marketing', label: t.dock.marketing, icon: Megaphone },
+    { id: 'assets', label: t.dock.assets, icon: Sparkles },
+    { id: 'videos', label: t.dock.videos, icon: Film },
+    { id: 'events', label: t.dock.events, icon: Camera },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +63,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({
     <div className="fixed bottom-3 inset-x-3 z-40 md:hidden pointer-events-none flex items-center justify-between gap-2">
       {/* Main Glassmorphic Dock */}
       <nav className="pointer-events-auto flex-1 py-1.5 px-2 rounded-2xl bg-[#0c081d]/90 backdrop-blur-2xl border border-purple-500/30 shadow-[0_10px_35px_rgba(0,0,0,0.85),0_0_20px_rgba(124,58,237,0.25)] flex items-center justify-around">
-        {DOCK_ITEMS.map((item) => {
+        {dockItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeZone === item.id;
           return (

@@ -16,6 +16,7 @@ import {
   ZoomOut
 } from 'lucide-react';
 import type { ResourceItem } from '../../types/resource';
+import { useI18n } from '../../i18n/I18nContext';
 
 interface PreviewModalProps {
   item: ResourceItem | null;
@@ -28,6 +29,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
   onClose,
   onDownload,
 }) => {
+  const { t } = useI18n();
   const [copied, setCopied] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1);
 
@@ -55,7 +57,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
         <button
           onClick={onClose}
           className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 rounded-full bg-black/70 hover:bg-black/90 text-slate-300 hover:text-white border border-white/20 transition-all active:scale-90 cursor-pointer"
-          aria-label="关闭"
+          aria-label="Close"
         >
           <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
@@ -69,7 +71,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               <button 
                 onClick={() => setZoomLevel(prev => Math.max(0.6, prev - 0.2))}
                 className="p-1.5 hover:bg-white/10 rounded-lg text-slate-300"
-                title="缩小"
+                title={t.modal.zoomOut}
               >
                 <ZoomOut className="w-4 h-4" />
               </button>
@@ -79,7 +81,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               <button 
                 onClick={() => setZoomLevel(prev => Math.min(2.5, prev + 0.2))}
                 className="p-1.5 hover:bg-white/10 rounded-lg text-slate-300"
-                title="放大"
+                title={t.modal.zoomIn}
               >
                 <ZoomIn className="w-4 h-4" />
               </button>
@@ -87,7 +89,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
                 onClick={() => setZoomLevel(1)}
                 className="text-[10px] px-2 py-1 hover:bg-white/10 rounded-lg text-purple-300 font-medium"
               >
-                重置
+                {t.modal.zoomReset}
               </button>
             </div>
           )}
@@ -115,7 +117,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
                     <Film className="w-8 h-8 ml-0.5" />
                   </div>
                   <h4 className="text-white font-bold text-sm mb-1">{item.title}</h4>
-                  <span className="text-xs text-purple-300">支持 1080P/4K 高清原画播放与下载</span>
+                  <span className="text-xs text-purple-300">1080P/4K UHD</span>
                 </div>
               </div>
             </div>
@@ -127,9 +129,9 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
               <p className="text-xs text-slate-400 mb-4">{item.description}</p>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-purple-300">
-                <span>格式：{item.fileFormatName}</span>
+                <span>{t.modal.fileFormat}: {item.fileFormatName}</span>
                 <span>•</span>
-                <span>大小：{item.fileSize}</span>
+                <span>{t.modal.fileSize}: {item.fileSize}</span>
               </div>
             </div>
           )}
@@ -138,7 +140,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
           {item.isNewDelivery && (
             <div className="absolute bottom-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
               <Sparkles className="w-3 h-3 text-emerald-400" />
-              <span>设计交付中心自动结项同步 • 编号 {item.deliveryProjectId}</span>
+              <span>#{item.deliveryProjectId}</span>
             </div>
           )}
 
@@ -155,7 +157,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
                 {item.subCategory}
               </span>
               <span className="text-[11px] sm:text-xs text-slate-400 font-mono">
-                {item.downloadsCount} 次下载查验
+                {item.downloadsCount} {t.modal.downloadsVerified}
               </span>
             </div>
 
@@ -172,19 +174,19 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             {/* Specs Grid */}
             <div className="grid grid-cols-2 gap-2 sm:gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-black/40 border border-purple-500/15 text-xs font-mono">
               <div>
-                <span className="text-slate-500 block text-[10px]">文件格式</span>
+                <span className="text-slate-500 block text-[10px]">{t.modal.fileFormat}</span>
                 <span className="text-white font-semibold">{item.fileFormatName}</span>
               </div>
               <div>
-                <span className="text-slate-500 block text-[10px]">文件体积</span>
+                <span className="text-slate-500 block text-[10px]">{t.modal.fileSize}</span>
                 <span className="text-white font-semibold">{item.fileSize}</span>
               </div>
               <div>
-                <span className="text-slate-500 block text-[10px]">更新日期</span>
+                <span className="text-slate-500 block text-[10px]">{t.modal.updatedAt}</span>
                 <span className="text-white font-semibold">{item.updatedAt}</span>
               </div>
               <div>
-                <span className="text-slate-500 block text-[10px]">适用市场</span>
+                <span className="text-slate-500 block text-[10px]">{t.modal.targetMarkets}</span>
                 <span className="text-purple-300 font-semibold">{item.languages.join(', ')}</span>
               </div>
             </div>
@@ -205,7 +207,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             <div className="p-2.5 sm:p-3 rounded-xl bg-purple-950/30 border border-purple-500/20 flex items-start gap-2">
               <ShieldAlert className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
               <div className="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">
-                官方物料使用规范：仅限 Spark 授权合伙人、渠道及活动团队正规宣传使用，严禁篡改主视觉或遮挡 Logo。
+                {t.modal.usageNotice}
               </div>
             </div>
 
@@ -218,7 +220,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               className="w-full min-h-[46px] sm:min-h-[50px] py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(124,58,237,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] transition-all active:scale-95 cursor-pointer"
             >
               <Download className="w-4 h-4 shrink-0" />
-              <span>立即下载完整源文件 ({item.fileSize})</span>
+              <span>{t.modal.downloadSource} ({item.fileSize})</span>
             </button>
 
             <button
@@ -228,12 +230,12 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               {copied ? (
                 <>
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="text-emerald-400 font-bold">直链已复制到剪贴板</span>
+                  <span className="text-emerald-400 font-bold">{t.modal.linkCopied}</span>
                 </>
               ) : (
                 <>
                   <Share2 className="w-4 h-4 text-purple-400 shrink-0" />
-                  <span>复制物料分享直链</span>
+                  <span>{t.modal.shareLink}</span>
                 </>
               )}
             </button>

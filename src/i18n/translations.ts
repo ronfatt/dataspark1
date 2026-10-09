@@ -1,0 +1,1138 @@
+export interface TranslationDict {
+  nav: {
+    brandSubtitle: string;
+    searchPlaceholder: string;
+    searchPlaceholderMobile: string;
+    liveSyncReady: string;
+    selectLanguageTitle: string;
+    languageCount: string;
+    done: string;
+    allLanguages: string;
+  };
+  hero: {
+    slogan: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    descriptionHighlight: string;
+    descriptionMobile: string;
+    quickJump: string;
+    stats_assets: string;
+    stats_zones: string;
+    stats_zonesDesc: string;
+    stats_languages: string;
+    stats_languagesDesc: string;
+    stats_free: string;
+    stats_freeDesc: string;
+  };
+  metrics: {
+    title: string;
+    subtitle: string;
+    latency: string;
+    nodeSync: string;
+    winRateTitle: string;
+    winRateDesc: string;
+    nodesTitle: string;
+    nodesDesc: string;
+    aumTitle: string;
+    aumDesc: string;
+    uptimeTitle: string;
+    uptimeDesc: string;
+    downloadsTitle: string;
+    downloadsDesc: string;
+    livePull: string;
+    justDownloaded: string;
+    justViewed: string;
+    justVerified: string;
+    liveBroadcast: string;
+  };
+  zones: {
+    all: string;
+    courseware: string;
+    marketing: string;
+    assets: string;
+    videos: string;
+    events: string;
+    coursewareSub: string;
+    marketingSub: string;
+    assetsSub: string;
+    videosSub: string;
+    eventsSub: string;
+    format: string;
+    format_all: string;
+    format_image: string;
+    format_video: string;
+    batchDownload: string;
+    itemsCount: string;
+  };
+  cards: {
+    version: string;
+    preview: string;
+    previewShort: string;
+    download: string;
+    downloadShort: string;
+    photoCount: string;
+  };
+  modal: {
+    downloadsVerified: string;
+    fileFormat: string;
+    fileSize: string;
+    updatedAt: string;
+    targetMarkets: string;
+    usageNoticeTitle: string;
+    usageNotice: string;
+    downloadSource: string;
+    shareLink: string;
+    linkCopied: string;
+    zoomIn: string;
+    zoomOut: string;
+    zoomReset: string;
+  };
+  search: {
+    resultsTitle: string;
+    resultsCount: string;
+    clearSearch: string;
+    noResults: string;
+    noResultsDesc: string;
+  };
+  toast: {
+    preparingDownload: string;
+    preparingDesc: string;
+    downloadStarted: string;
+    downloadStartedDesc: string;
+    batchPackaging: string;
+    batchPackagingDesc: string;
+    batchReady: string;
+    batchReadyDesc: string;
+  };
+  dock: {
+    all: string;
+    courseware: string;
+    marketing: string;
+    assets: string;
+    videos: string;
+    events: string;
+    backToTop: string;
+  };
+  footer: {
+    copyright: string;
+    compliance: string;
+    privacy: string;
+    terms: string;
+    security: string;
+  };
+}
+
+export const TRANSLATIONS: Record<string, TranslationDict> = {
+  // 1. 中文简体 (Default)
+  '中文简体': {
+    nav: {
+      brandSubtitle: 'Union Capital Inc. • 全球物料数据库',
+      searchPlaceholder: '快速搜索课件、海报、3D Logo、视频、相册...',
+      searchPlaceholderMobile: '搜索课件、海报、Logo、视频...',
+      liveSyncReady: '实时同步已就绪',
+      selectLanguageTitle: '选择语言市场',
+      languageCount: '8 种语言',
+      done: '完成',
+      allLanguages: '全语言物料',
+    },
+    hero: {
+      slogan: '全球视野 • 智能金融',
+      title: 'SPARK 官方物料数据库',
+      subtitle: '全套设计资产 • 模块化分区归档',
+      description: '面向全球用户、代理商与合作伙伴的官方物料中心。汇集标准课件、海报长图、3D徽标与易拉宝、官方宣发视频及全球公益纪实相册。',
+      descriptionHighlight: '⚡️ 全站物料免登录即开即下，支持多语言版本一键切换与批量打包。',
+      descriptionMobile: '官方物料数据库，课件、海报、3D标、宣发片及相册免登录即开即下。',
+      quickJump: '直达:',
+      stats_assets: '收录物料',
+      stats_zones: '5 大专区',
+      stats_zonesDesc: '精准归档',
+      stats_languages: '多语言',
+      stats_languagesDesc: '单卡即切',
+      stats_free: '免登录',
+      stats_freeDesc: '极速下载',
+    },
+    metrics: {
+      title: 'SPARK ECOSYSTEM',
+      subtitle: '全网实时大盘数据',
+      latency: '延时 16ms',
+      nodeSync: '全球 28 国节点同步中',
+      winRateTitle: 'AI量化24H胜率',
+      winRateDesc: '无损对冲策略执行',
+      nodesTitle: '全球活跃节点',
+      nodesDesc: '覆盖 28+ 国家与地区',
+      aumTitle: '全球配置管理规模',
+      aumDesc: '多重签名冷热隔离',
+      uptimeTitle: '安全运行天数',
+      uptimeDesc: '100% 官方合约稳定',
+      downloadsTitle: '24H 物料下发总量',
+      downloadsDesc: '全网吞吐 1.84 TB',
+      livePull: '实时调取',
+      justDownloaded: '刚刚下载了',
+      justViewed: '刚刚调阅了',
+      justVerified: '刚刚查验了',
+      liveBroadcast: '实时广播',
+    },
+    zones: {
+      all: '全部专区',
+      courseware: '课件区',
+      marketing: '市场宣传',
+      assets: '素材专区',
+      videos: '视频专区',
+      events: '活动照片区',
+      coursewareSub: '项目介绍标准课件 • 金融简介白皮书 • 全球演讲讲义 (同一档案点击小按钮切换语言版本)',
+      marketingSub: '会员权益全景长图 • 官方品牌活动海报 • 印刷级宣发竖版主视觉',
+      assetsSub: '3D立体金属新Logo • 透明底高清矢量 • 多语言线下易拉宝展架与合规执照',
+      videosSub: '四语原声官方品牌大片 • 3D动态Logo光效演绎 • 各国现场公益纪录片',
+      eventsSub: '西非助学 • 越南爱心捐赠 • 泰国孤儿院 • 马来西亚老人院等现场高清纪实相册',
+      format: '格式:',
+      format_all: '全部',
+      format_image: '图片',
+      format_video: '视频',
+      batchDownload: '打包本区',
+      itemsCount: '份物料',
+    },
+    cards: {
+      version: '版本:',
+      preview: '查验预览',
+      previewShort: '预览',
+      download: '极速下载',
+      downloadShort: '下载',
+      photoCount: '张原图',
+    },
+    modal: {
+      downloadsVerified: '次下载查验',
+      fileFormat: '文件格式',
+      fileSize: '文件体积',
+      updatedAt: '更新日期',
+      targetMarkets: '适用市场',
+      usageNoticeTitle: '官方物料使用规范',
+      usageNotice: '官方物料使用规范：仅限 Spark 授权合伙人、渠道及活动团队正规宣传使用，严禁篡改主视觉或遮挡 Logo。',
+      downloadSource: '立即下载完整源文件',
+      shareLink: '复制物料分享直链',
+      linkCopied: '直链已复制到剪贴板',
+      zoomIn: '放大',
+      zoomOut: '缩小',
+      zoomReset: '重置',
+    },
+    search: {
+      resultsTitle: '搜索结果',
+      resultsCount: '共找到 {count} 项匹配物料',
+      clearSearch: '清除搜索',
+      noResults: '未找到匹配物料',
+      noResultsDesc: '请尝试缩短搜索词或重置筛选条件。',
+    },
+    toast: {
+      preparingDownload: '正在极速打包传输...',
+      preparingDesc: '已为您建立《{title}》的高速安全下载通道。',
+      downloadStarted: '下载已启动！',
+      downloadStartedDesc: '《{title}》源文件已成功保存到您的本地设备。',
+      batchPackaging: '打包下载【{zone}】物料',
+      batchPackagingDesc: '正在为该专区下的 {count} 份高清源文件生成 ZIP 压缩总包...',
+      batchReady: 'ZIP 打包已就绪！',
+      batchReadyDesc: '【{zone}】全套物料压缩包已开始下载。',
+    },
+    dock: {
+      all: '全部',
+      courseware: '课件',
+      marketing: '海报',
+      assets: '素材',
+      videos: '视频',
+      events: '照片',
+      backToTop: '回到顶部',
+    },
+    footer: {
+      copyright: '© 2026 SPARK UNION CAPITAL INC. 全球物料数据库。保留所有权利。',
+      compliance: '美国 FinCEN 注册 MSB 金融机构备案编号：31000275819482。',
+      privacy: '隐私政策',
+      terms: '授权条款',
+      security: '合规验证',
+    },
+  },
+
+  // 2. 中文繁体
+  '中文繁体': {
+    nav: {
+      brandSubtitle: 'Union Capital Inc. • 全球物料資料庫',
+      searchPlaceholder: '快速搜尋課件、海報、3D Logo、影片、相簿...',
+      searchPlaceholderMobile: '搜尋課件、海報、Logo、影片...',
+      liveSyncReady: '即時同步已就緒',
+      selectLanguageTitle: '選擇語言市場',
+      languageCount: '8 種語言',
+      done: '完成',
+      allLanguages: '全語言物料',
+    },
+    hero: {
+      slogan: '全球視野 • 智能金融',
+      title: 'SPARK 官方物料資料庫',
+      subtitle: '全套設計資產 • 模組化分區歸檔',
+      description: '面向全球用戶、代理商與合作夥伴的官方物料中心。匯集標準課件、海報長圖、3D徽標與易拉寶、官方宣發影片及全球公益紀實相簿。',
+      descriptionHighlight: '⚡️ 全站物料免登入即開即載，支援多語言版本一鍵切換與批量打包。',
+      descriptionMobile: '官方物料資料庫，課件、海報、3D標、宣發片及相簿免登入即開即載。',
+      quickJump: '直達:',
+      stats_assets: '收錄物料',
+      stats_zones: '5 大專區',
+      stats_zonesDesc: '精準歸檔',
+      stats_languages: '多語言',
+      stats_languagesDesc: '單卡即切',
+      stats_free: '免登入',
+      stats_freeDesc: '極速下載',
+    },
+    metrics: {
+      title: 'SPARK ECOSYSTEM',
+      subtitle: '全網即時大盤數據',
+      latency: '延遲 16ms',
+      nodeSync: '全球 28 國節點同步中',
+      winRateTitle: 'AI量化24H勝率',
+      winRateDesc: '無損對沖策略執行',
+      nodesTitle: '全球活躍節點',
+      nodesDesc: '覆蓋 28+ 國家與地區',
+      aumTitle: '全球配置管理規模',
+      aumDesc: '多重簽名冷熱隔離',
+      uptimeTitle: '安全運行天數',
+      uptimeDesc: '100% 官方合約穩定',
+      downloadsTitle: '24H 物料下發總量',
+      downloadsDesc: '全網吞吐 1.84 TB',
+      livePull: '即時調取',
+      justDownloaded: '剛剛下載了',
+      justViewed: '剛剛調閱了',
+      justVerified: '剛剛查驗了',
+      liveBroadcast: '即時廣播',
+    },
+    zones: {
+      all: '全部專區',
+      courseware: '課件區',
+      marketing: '市場宣傳',
+      assets: '素材專區',
+      videos: '影片專區',
+      events: '活動照片區',
+      coursewareSub: '項目介紹標準課件 • 金融簡介白皮書 • 全球演講講義 (同一檔案點擊小按鈕切換語言版本)',
+      marketingSub: '會員權益全景長圖 • 官方品牌活動海報 • 印刷級宣發豎版主視覺',
+      assetsSub: '3D立體金屬新Logo • 透明底高清向量 • 多語言線下易拉寶展架與合規執照',
+      videosSub: '四語原聲官方品牌大片 • 3D動態Logo光效演繹 • 各國現場公益紀錄片',
+      eventsSub: '西非助學 • 越南愛心捐贈 • 泰國孤兒院 • 馬來西亞老人院等現場高清紀實相簿',
+      format: '格式:',
+      format_all: '全部',
+      format_image: '圖片',
+      format_video: '影片',
+      batchDownload: '打包本區',
+      itemsCount: '份物料',
+    },
+    cards: {
+      version: '版本:',
+      preview: '查驗預覽',
+      previewShort: '預覽',
+      download: '極速下載',
+      downloadShort: '下載',
+      photoCount: '張原圖',
+    },
+    modal: {
+      downloadsVerified: '次下載查驗',
+      fileFormat: '檔案格式',
+      fileSize: '檔案大小',
+      updatedAt: '更新日期',
+      targetMarkets: '適用市場',
+      usageNoticeTitle: '官方物料使用規範',
+      usageNotice: '官方物料使用規範：僅限 Spark 授權合夥人、渠道及活動團隊正規宣傳使用，嚴禁篡改主視覺或遮擋 Logo。',
+      downloadSource: '立即下載完整原始檔案',
+      shareLink: '複製物料分享直鏈',
+      linkCopied: '直鏈已複製至剪貼簿',
+      zoomIn: '放大',
+      zoomOut: '縮小',
+      zoomReset: '重設',
+    },
+    search: {
+      resultsTitle: '搜尋結果',
+      resultsCount: '共找到 {count} 項符合物料',
+      clearSearch: '清除搜尋',
+      noResults: '未找到符合物料',
+      noResultsDesc: '請嘗試縮短搜尋詞或重設篩選條件。',
+    },
+    toast: {
+      preparingDownload: '正在極速打包傳輸...',
+      preparingDesc: '已為您建立《{title}》的高速安全下載通道。',
+      downloadStarted: '下載已啟動！',
+      downloadStartedDesc: '《{title}》原始檔案已成功保存至您的本機裝置。',
+      batchPackaging: '打包下載【{zone}】物料',
+      batchPackagingDesc: '正在為該專區下的 {count} 份高清原始檔案生成 ZIP 壓縮總包...',
+      batchReady: 'ZIP 打包已就緒！',
+      batchReadyDesc: '【{zone}】全套物料壓縮包已開始下載。',
+    },
+    dock: {
+      all: '全部',
+      courseware: '課件',
+      marketing: '海報',
+      assets: '素材',
+      videos: '影片',
+      events: '照片',
+      backToTop: '回到頂部',
+    },
+    footer: {
+      copyright: '© 2026 SPARK UNION CAPITAL INC. 全球物料資料庫。保留所有權利。',
+      compliance: '美國 FinCEN 註冊 MSB 金融機構備案編號：31000275819482。',
+      privacy: '隱私政策',
+      terms: '授權條款',
+      security: '合規驗證',
+    },
+  },
+
+  // 3. 英文 (English)
+  '英文': {
+    nav: {
+      brandSubtitle: 'Union Capital Inc. • Global Material Database',
+      searchPlaceholder: 'Search courseware, posters, 3D logos, videos, albums...',
+      searchPlaceholderMobile: 'Search materials, posters, videos...',
+      liveSyncReady: 'Live Sync Active',
+      selectLanguageTitle: 'Select Market Language',
+      languageCount: '8 Languages',
+      done: 'Done',
+      allLanguages: 'All Languages',
+    },
+    hero: {
+      slogan: 'Global Vision • Intelligent Finance',
+      title: 'SPARK Official Resource Hub',
+      subtitle: 'Complete Design Assets • Modular Architecture',
+      description: 'Official global resource center for partners, brokers, and community nodes. Comprehensive presentations, posters, 3D emblems, cinema reels, and global CSR albums.',
+      descriptionHighlight: '⚡️ Instant direct download without login. Seamless multi-language edition toggle & batch ZIP packages.',
+      descriptionMobile: 'Official resource database: decks, posters, 3D logos, videos & albums ready to download.',
+      quickJump: 'Jump:',
+      stats_assets: 'Curated Assets',
+      stats_zones: '5 Zones',
+      stats_zonesDesc: 'Categorized',
+      stats_languages: 'Multi-Lang',
+      stats_languagesDesc: 'Instant Switch',
+      stats_free: 'No Login',
+      stats_freeDesc: 'Fast Download',
+    },
+    metrics: {
+      title: 'SPARK ECOSYSTEM',
+      subtitle: 'Real-time Global Metrics',
+      latency: 'Latency 16ms',
+      nodeSync: 'Synchronizing across 28 nations',
+      winRateTitle: 'AI Quant 24H Win Rate',
+      winRateDesc: 'Lossless Hedging Execution',
+      nodesTitle: 'Active Global Nodes',
+      nodesDesc: 'Across 28+ Countries & Regions',
+      aumTitle: 'Total Assets Managed',
+      aumDesc: 'Multi-Sig Cold & Hot Segregation',
+      uptimeTitle: 'Zero-Fault Uptime',
+      uptimeDesc: '100% Contract Stability',
+      downloadsTitle: '24H Material Deliveries',
+      downloadsDesc: 'Global Throughput 1.84 TB',
+      livePull: 'LIVE FEED',
+      justDownloaded: 'just downloaded',
+      justViewed: 'just viewed',
+      justVerified: 'just verified',
+      liveBroadcast: 'Live Broadcast',
+    },
+    zones: {
+      all: 'All Zones',
+      courseware: 'Courseware',
+      marketing: 'Marketing',
+      assets: 'Brand Assets',
+      videos: 'Videos & Cinema',
+      events: 'CSR Events',
+      coursewareSub: 'Standard Pitch Decks • Wealth Whitepapers • Global Keynotes (Click small buttons for multi-language editions)',
+      marketingSub: 'Growth Long-forms • Brand Posters • High-res 4K Print Visuals',
+      assetsSub: '3D Chrome Logo • Transparent Vectors • Multi-Language Rollups (80x200cm) & Licenses',
+      videosSub: 'Quad-lingual Cinema Promos • 3D Motion Logo Stingers • Field CSR Documentaries',
+      eventsSub: 'West Africa Aid • Vietnam Donations • Thailand Orphanage • Malaysia Charity Photos',
+      format: 'Format:',
+      format_all: 'ALL',
+      format_image: 'IMAGE',
+      format_video: 'VIDEO',
+      batchDownload: 'Download Zone',
+      itemsCount: 'Items',
+    },
+    cards: {
+      version: 'Edition:',
+      preview: 'Preview',
+      previewShort: 'Preview',
+      download: 'Download',
+      downloadShort: 'Download',
+      photoCount: 'HD Photos',
+    },
+    modal: {
+      downloadsVerified: 'Downloads & Views',
+      fileFormat: 'File Format',
+      fileSize: 'File Size',
+      updatedAt: 'Updated Date',
+      targetMarkets: 'Target Markets',
+      usageNoticeTitle: 'Official Usage Guidelines',
+      usageNotice: 'Official Guidelines: Authorized for official Spark partners and promotional campaigns. Modifying master visuals or obscuring logos is strictly prohibited.',
+      downloadSource: 'Download Master Source File',
+      shareLink: 'Copy Asset Share Link',
+      linkCopied: 'Link Copied to Clipboard',
+      zoomIn: 'Zoom In',
+      zoomOut: 'Zoom Out',
+      zoomReset: 'Reset',
+    },
+    search: {
+      resultsTitle: 'Search Results',
+      resultsCount: 'Found {count} matching items',
+      clearSearch: 'Clear Search',
+      noResults: 'No Matching Materials Found',
+      noResultsDesc: 'Try shortening keywords or resetting filter parameters.',
+    },
+    toast: {
+      preparingDownload: 'Packaging Fast Transfer...',
+      preparingDesc: 'Establishing high-speed secure channel for "{title}".',
+      downloadStarted: 'Download Started!',
+      downloadStartedDesc: '"{title}" master file is being saved to your local device.',
+      batchPackaging: 'Packaging [{zone}] Assets',
+      batchPackagingDesc: 'Generating ZIP archive for {count} high-resolution files in this zone...',
+      batchReady: 'ZIP Archive Ready!',
+      batchReadyDesc: '[{zone}] complete asset bundle has begun downloading.',
+    },
+    dock: {
+      all: 'All',
+      courseware: 'Decks',
+      marketing: 'Posters',
+      assets: 'Assets',
+      videos: 'Videos',
+      events: 'Photos',
+      backToTop: 'Top',
+    },
+    footer: {
+      copyright: '© 2026 SPARK UNION CAPITAL INC. Global Resource Database. All rights reserved.',
+      compliance: 'U.S. FinCEN Registered MSB Institution No.: 31000275819482.',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Use',
+      security: 'Compliance Certification',
+    },
+  },
+
+  // 4. 韩文 (Korean - 한국어)
+  '韩文': {
+    nav: {
+      brandSubtitle: 'Union Capital Inc. • 글로벌 리소스 데이터베이스',
+      searchPlaceholder: '강의 자료, 포스터, 3D 로고, 영상, 앨범 검색...',
+      searchPlaceholderMobile: '자료, 포스터, 로고, 영상 검색...',
+      liveSyncReady: '실시간 동기화 완료',
+      selectLanguageTitle: '언어 시장 선택',
+      languageCount: '8개 언어',
+      done: '완료',
+      allLanguages: '모든 언어 자료',
+    },
+    hero: {
+      slogan: '글로벌 비전 • 인텔리전트 금융',
+      title: 'SPARK 공식 리소스 데이터베이스',
+      subtitle: '전체 디자인 자산 • 모듈형 카테고리 아카이브',
+      description: '글로벌 파트너, 에이전트 및 커뮤니티 노드를 위한 공식 리소스 센터. 표준 프레젠테이션, 홍보 포스터, 3D 엠블럼, 홍보 영상 및 글로벌 CSR 앨범 제공.',
+      descriptionHighlight: '⚡️ 로그인 없이 즉시 다운로드 가능. 다국어 버전 원클릭 전환 및 일괄 압축팩 지원.',
+      descriptionMobile: '공식 리소스 데이터베이스: 강의자료, 포스터, 3D 로고, 영상 및 앨범 즉시 다운로드.',
+      quickJump: '바로가기:',
+      stats_assets: '보유 리소스',
+      stats_zones: '5대 카테고리',
+      stats_zonesDesc: '모듈형 아카이브',
+      stats_languages: '다국어 지원',
+      stats_languagesDesc: '원클릭 전환',
+      stats_free: '무로그인',
+      stats_freeDesc: '초고속 다운로드',
+    },
+    metrics: {
+      title: 'SPARK ECOSYSTEM',
+      subtitle: '실시간 글로벌 네트워크 대시보드',
+      latency: '지연시간 16ms',
+      nodeSync: '글로벌 28개국 노드 동기화 중',
+      winRateTitle: 'AI 퀀트 24H 승률',
+      winRateDesc: '무손실 헷징 전략 실행 중',
+      nodesTitle: '글로벌 활성 노드',
+      nodesDesc: '28개국 이상 지역 커버',
+      aumTitle: '자산 운용 총규모',
+      aumDesc: '멀티시그 콜드/핫월렛 분리',
+      uptimeTitle: '무사고 안정 운영',
+      uptimeDesc: '100% 공식 스마트컨트랙트',
+      downloadsTitle: '24H 리소스 전송량',
+      downloadsDesc: '전체 트래픽 1.84 TB',
+      livePull: '실시간 전송',
+      justDownloaded: '방금 다운로드함',
+      justViewed: '방금 열람함',
+      justVerified: '방금 검증함',
+      liveBroadcast: '실시간 피드',
+    },
+    zones: {
+      all: '전체 카테고리',
+      courseware: '강의 자료',
+      marketing: '마케팅 홍보',
+      assets: '디자인 리소스',
+      videos: '공식 영상',
+      events: '활동 사진',
+      coursewareSub: '프로젝트 소개 표준 강의안 • 금융 백서 • 글로벌 발표자료 (작은 버튼으로 언어 버전 즉시 변경)',
+      marketingSub: '회원 혜택 안내 장문 • 브랜드 프로모션 포스터 • 4K 인쇄용 비주얼',
+      assetsSub: '3D 메탈 입체 로고 • 배경투명 벡터 파일 • 다국어 롤업 배너 (80x200cm) 및 면허 서류',
+      videosSub: '4개국어 공식 브랜드 영상 • 3D 모션 로고 인트로 • 글로벌 봉사활동 다큐멘터리',
+      eventsSub: '서아프리카 장학 • 베트남 나눔 • 태국 보육원 • 말레이시아 양로원 현장 앨범',
+      format: '포맷:',
+      format_all: '전체',
+      format_image: '이미지',
+      format_video: '비디오',
+      batchDownload: '이 구역 전체 다운로드',
+      itemsCount: '개 항목',
+    },
+    cards: {
+      version: '버전:',
+      preview: '미리보기',
+      previewShort: '보기',
+      download: '초고속 다운로드',
+      downloadShort: '다운로드',
+      photoCount: '장 고화질 사진',
+    },
+    modal: {
+      downloadsVerified: '회 다운로드 및 검증',
+      fileFormat: '파일 포맷',
+      fileSize: '파일 크기',
+      updatedAt: '업데이트 일자',
+      targetMarkets: '적용 시장',
+      usageNoticeTitle: '공식 리소스 이용 규정',
+      usageNotice: '공식 리소스 가이드: 공인된 Spark 파트너 및 홍보 채널 전용입니다. 원본 비주얼 변형이나 로고 가림 행위는 엄격히 금지됩니다.',
+      downloadSource: '마스터 원본 파일 즉시 다운로드',
+      shareLink: '리소스 공유 링크 복사',
+      linkCopied: '링크가 클립보드에 복사되었습니다',
+      zoomIn: '확대',
+      zoomOut: '축소',
+      zoomReset: '초기화',
+    },
+    search: {
+      resultsTitle: '검색 결과',
+      resultsCount: '총 {count}개의 일치 항목 발견',
+      clearSearch: '검색 초기화',
+      noResults: '일치하는 자료가 없습니다',
+      noResultsDesc: '검색어를 줄이거나 필터 조건을 재설정해 보세요.',
+    },
+    toast: {
+      preparingDownload: '초고속 전송 패키징 중...',
+      preparingDesc: '《{title}》의 안전한 고속 다운로드 채널을 연결했습니다.',
+      downloadStarted: '다운로드가 시작되었습니다!',
+      downloadStartedDesc: '《{title}》 원본 파일이 로컬 장치에 저장되었습니다.',
+      batchPackaging: '【{zone}】 리소스 압축 중',
+      batchPackagingDesc: '해당 구역의 고화질 파일 {count}개를 ZIP으로 생성 중입니다...',
+      batchReady: 'ZIP 압축 준비 완료!',
+      batchReadyDesc: '【{zone}】 전체 패키지 다운로드가 시작되었습니다.',
+    },
+    dock: {
+      all: '전체',
+      courseware: '강의',
+      marketing: '포스터',
+      assets: '리소스',
+      videos: '영상',
+      events: '사진',
+      backToTop: '맨위로',
+    },
+    footer: {
+      copyright: '© 2026 SPARK UNION CAPITAL INC. 글로벌 리소스 데이터베이스. All rights reserved.',
+      compliance: '미국 FinCEN 등록 MSB 금융기관 인증번호: 31000275819482.',
+      privacy: '개인정보처리방침',
+      terms: '이용약관',
+      security: '규제 준수 인증',
+    },
+  },
+
+  // 5. 日文 (Japanese - 日本語)
+  '日文': {
+    nav: {
+      brandSubtitle: 'Union Capital Inc. • グローバル素材データベース',
+      searchPlaceholder: '講義資料、ポスター、3Dロゴ、動画、アルバムを検索...',
+      searchPlaceholderMobile: '資料、ポスター、ロゴ、動画を検索...',
+      liveSyncReady: 'リアルタイム同期完了',
+      selectLanguageTitle: '言語市場を選択',
+      languageCount: '8言語',
+      done: '完了',
+      allLanguages: 'すべての言語',
+    },
+    hero: {
+      slogan: 'グローバルビジョン • インテリジェント金融',
+      title: 'SPARK 公式リソースデータベース',
+      subtitle: '完全なデザイン資産 • モジュール別アーカイブ',
+      description: '世界中のパートナー、代理店、コミュニティのための公式リソースセンター。標準スライド、ポスター、3Dロゴ、公式動画、慈善活動アルバムを網羅。',
+      descriptionHighlight: '⚡️ ログイン不要で即座にダウンロード。多言語ワンクリック切り替え＆一括ZIPダウンロード対応。',
+      descriptionMobile: '公式リソースデータベース：資料、ポスター、3Dロゴ、動画がログイン不要で即DL可能。',
+      quickJump: '直通:',
+      stats_assets: '収録リソース',
+      stats_zones: '5大ゾーン',
+      stats_zonesDesc: '精密分類',
+      stats_languages: '多言語対応',
+      stats_languagesDesc: '即時切り替え',
+      stats_free: '登録不要',
+      stats_freeDesc: '高速DL',
+    },
+    metrics: {
+      title: 'SPARK ECOSYSTEM',
+      subtitle: 'リアルタイム全網データ',
+      latency: '遅延 16ms',
+      nodeSync: '世界28カ国のノード同期中',
+      winRateTitle: 'AIクオンツ24H勝率',
+      winRateDesc: '無損失ヘッジ戦略実行中',
+      nodesTitle: '世界アクティブノード',
+      nodesDesc: '28カ国・地域をカバー',
+      aumTitle: '資産運用総額',
+      aumDesc: 'マルチシグ・コールドウォレット隔離',
+      uptimeTitle: '無事故稼働日数',
+      uptimeDesc: '100%公式コントラクト安定',
+      downloadsTitle: '24H リソース配信総数',
+      downloadsDesc: '全網スループット 1.84 TB',
+      livePull: '即時取得',
+      justDownloaded: 'がダウンロードしました',
+      justViewed: 'が閲覧しました',
+      justVerified: 'が確認しました',
+      liveBroadcast: '配信フィード',
+    },
+    zones: {
+      all: 'すべてのゾーン',
+      courseware: '講義資料',
+      marketing: 'マーケティング宣伝',
+      assets: '素材・ロゴ',
+      videos: '公式動画',
+      events: '活動写真',
+      coursewareSub: 'プロジェクト標準講義資料 • 金融白書 • グローバル講演スライド（小ボタンで言語切り替え）',
+      marketingSub: '会員特典インフォグラフィック • 公式イベントポスター • 4K印刷級ビジュアル',
+      assetsSub: '3Dメタル立体新ロゴ • 背景透過ベクター • 多言語ロールアップバナー＆認証書類',
+      videosSub: '4言語ネイティブ音声公式動画 • 3Dモーションロゴ • 現地社会貢献ドキュメンタリー',
+      eventsSub: '西アフリカ奨学 • ベトナム寄付 • タイ孤児院 • マレーシア高齢者施設写真集',
+      format: '形式:',
+      format_all: 'すべて',
+      format_image: '画像',
+      format_video: '動画',
+      batchDownload: 'このエリアを一括DL',
+      itemsCount: '件の素材',
+    },
+    cards: {
+      version: '版:',
+      preview: 'プレビュー',
+      previewShort: '確認',
+      download: '高速ダウンロード',
+      downloadShort: 'DL',
+      photoCount: '枚の原本写真',
+    },
+    modal: {
+      downloadsVerified: '回ダウンロード・確認',
+      fileFormat: 'ファイル形式',
+      fileSize: 'ファイル容量',
+      updatedAt: '更新日',
+      targetMarkets: '対象言語市場',
+      usageNoticeTitle: '公式素材利用ガイドライン',
+      usageNotice: '公式ガイドライン：公認パートナーおよびプロモーション専用です。マスタービジュアルの改変やロゴ隠蔽は固く禁止されています。',
+      downloadSource: 'マスター原本ファイルを今すぐダウンロード',
+      shareLink: '素材の共有リンクをコピー',
+      linkCopied: 'リンクをクリップボードにコピーしました',
+      zoomIn: '拡大',
+      zoomOut: '縮小',
+      zoomReset: 'リセット',
+    },
+    search: {
+      resultsTitle: '検索結果',
+      resultsCount: '合計 {count} 件の一致素材',
+      clearSearch: '検索解除',
+      noResults: '該当する素材が見つかりません',
+      noResultsDesc: 'キーワードを短くするか、フィルター条件をリセットしてください。',
+    },
+    toast: {
+      preparingDownload: 'パッケージング準備中...',
+      preparingDesc: '《{title}》の安全な高速ダウンロード回線を確立しました。',
+      downloadStarted: 'ダウンロードを開始しました！',
+      downloadStartedDesc: '《{title}》の原本ファイルが端末に保存されました。',
+      batchPackaging: '【{zone}】素材を圧縮中',
+      batchPackagingDesc: 'このゾーンの {count} 件の高画質ファイルをZIPアーカイブ化しています...',
+      batchReady: 'ZIPアーカイブ完成！',
+      batchReadyDesc: '【{zone}】全素材のZIPダウンロードが始まりました。',
+    },
+    dock: {
+      all: '全体',
+      courseware: '資料',
+      marketing: 'ポスター',
+      assets: '素材',
+      videos: '動画',
+      events: '写真',
+      backToTop: '先頭へ',
+    },
+    footer: {
+      copyright: '© 2026 SPARK UNION CAPITAL INC. グローバル素材データベース. All rights reserved.',
+      compliance: '米国FinCEN登録 MSB金融機関届出番号：31000275819482.',
+      privacy: 'プライバシーポリシー',
+      terms: '利用規約',
+      security: 'コンプライアンス検証',
+    },
+  },
+
+  // 6. 泰文 (Thai - ภาษาไทย)
+  '泰文': {
+    nav: {
+      brandSubtitle: 'Union Capital Inc. • ฐานข้อมูลทรัพยากรระดับโลก',
+      searchPlaceholder: 'ค้นหาเอกสาร, โปสเตอร์, โลโก้ 3D, วิดีโอ, อัลบั้ม...',
+      searchPlaceholderMobile: 'ค้นหาสื่อ, โปสเตอร์, วิดีโอ...',
+      liveSyncReady: 'ซิงค์แบบเรียลไทม์พร้อมแล้ว',
+      selectLanguageTitle: 'เลือกตลาดภาษา',
+      languageCount: '8 ภาษา',
+      done: 'เสร็จสิ้น',
+      allLanguages: 'ทรัพยากรทุกภาษา',
+    },
+    hero: {
+      slogan: 'วิสัยทัศน์ระดับโลก • การเงินอัจฉริยะ',
+      title: 'คลังทรัพยากรทางการ SPARK',
+      subtitle: 'สินทรัพย์การออกแบบครบวงจร • จัดหมวดหมู่แบบโมดูลาร์',
+      description: 'ศูนย์ทรัพยากรอย่างเป็นทางการสำหรับพันธมิตรและเครือข่ายทั่วโลก รวบรวมเอกสารการนำเสนอ, โปสเตอร์, โลโก้ 3D, วิดีโอโปรโมต และอัลบั้มกิจกรรมเพื่อสังคม',
+      descriptionHighlight: '⚡️ ดาวน์โหลดได้ทันทีโดยไม่ต้องเข้าสู่ระบบ รองรับการสลับภาษาด้วยคลิกเดียวและดาวน์โหลดแบบแพ็กเกจ ZIP',
+      descriptionMobile: 'คลังสื่อทางการ: เอกสาร, โปสเตอร์, โลโก้ 3D, วิดีโอ พร้อมดาวน์โหลดทันที',
+      quickJump: 'ไปยัง:',
+      stats_assets: 'สื่อที่รวบรวม',
+      stats_zones: '5 โซนหลัก',
+      stats_zonesDesc: 'จัดหมวดหมู่แม่นยำ',
+      stats_languages: 'หลายภาษา',
+      stats_languagesDesc: 'สลับทันที',
+      stats_free: 'ไม่ต้องล็อกอิน',
+      stats_freeDesc: 'โหลดเร็วทันใจ',
+    },
+    metrics: {
+      title: 'SPARK ECOSYSTEM',
+      subtitle: 'ข้อมูลเครือข่ายแบบเรียลไทม์',
+      latency: 'ความหน่วง 16ms',
+      nodeSync: 'กำลังซิงค์โหนดใน 28 ประเทศ',
+      winRateTitle: 'อัตราชนะ AI Quant 24ชม.',
+      winRateDesc: 'กลยุทธ์ป้องกันความเสี่ยงไร้ขาดทุน',
+      nodesTitle: 'โหนดที่ใช้งานทั่วโลก',
+      nodesDesc: 'ครอบคลุมกว่า 28 ประเทศและภูมิภาค',
+      aumTitle: 'มูลค่าการจัดการสินทรัพย์',
+      aumDesc: 'แยกกระเป๋าเงินร้อน/เย็นแบบหลายลายเซ็น',
+      uptimeTitle: 'วันเปิดทำการปลอดภัย',
+      uptimeDesc: 'สัญญาอัจฉริยะเสถียร 100%',
+      downloadsTitle: 'ยอดส่งมอบสื่อ 24 ชม.',
+      downloadsDesc: 'ปริมาณข้อมูลรวม 1.84 TB',
+      livePull: 'ดึงข้อมูลสด',
+      justDownloaded: 'เพิ่งดาวน์โหลด',
+      justViewed: 'เพิ่งเปิดดู',
+      justVerified: 'เพิ่งตรวจสอบ',
+      liveBroadcast: 'ถ่ายทอดสด',
+    },
+    zones: {
+      all: 'ทุกโซน',
+      courseware: 'เอกสารการสอน',
+      marketing: 'การตลาดและสื่อ',
+      assets: 'องค์ประกอบแบรนด์',
+      videos: 'วิดีโอทางการ',
+      events: 'ภาพกิจกรรม',
+      coursewareSub: 'เอกสารนำเสนอโครงการ • สมุดปกขาวทางการเงิน • สไลด์บรรยายระดับโลก (กดปุ่มเล็กเพื่อสลับภาษา)',
+      marketingSub: 'ภาพสิทธิประโยชน์สมาชิก • โปสเตอร์โปรโมตแบรนด์ • ภาพพิมพ์ความละเอียดสูงระดับ 4K',
+      assetsSub: 'โลโก้ 3D เมทัลลิกใหม่ • เวกเตอร์พื้นหลังโปร่งใส • โรลอัปหลายภาษาและใบอนุญาต',
+      videosSub: 'วิดีโอโปรโมตระดับภาพยนตร์ 4 ภาษา • แอนิเมชันโลโก้ 3D • สารคดีกิจกรรมเพื่อสังคม',
+      eventsSub: 'ทุนการศึกษาแอฟริกาตะวันตก • บริจาคเวียดนาม • สถานเลี้ยงเด็กกำพร้าไทย • บ้านพักคนชรามาเลเซีย',
+      format: 'รูปแบบ:',
+      format_all: 'ทั้งหมด',
+      format_image: 'รูปภาพ',
+      format_video: 'วิดีโอ',
+      batchDownload: 'ดาวน์โหลดโซนนี้ทั้งหมด',
+      itemsCount: 'รายการ',
+    },
+    cards: {
+      version: 'เวอร์ชัน:',
+      preview: 'ดูตัวอย่าง',
+      previewShort: 'ดูตัวอย่าง',
+      download: 'ดาวน์โหลดทันที',
+      downloadShort: 'ดาวน์โหลด',
+      photoCount: 'รูปภาพต้นฉบับ',
+    },
+    modal: {
+      downloadsVerified: 'ครั้งที่ดาวน์โหลดและตรวจสอบ',
+      fileFormat: 'รูปแบบไฟล์',
+      fileSize: 'ขนาดไฟล์',
+      updatedAt: 'วันที่อัปเดต',
+      targetMarkets: 'ตลาดเป้าหมาย',
+      usageNoticeTitle: 'ข้อกำหนดการใช้สื่อทางการ',
+      usageNotice: 'ข้อกำหนด: สงวนสิทธิ์สำหรับพันธมิตรที่ได้รับอนุญาตของ Spark ห้ามดัดแปลงแก้ไขภาพหลักหรือปิดบังโลโก้โดยเด็ดขาด',
+      downloadSource: 'ดาวน์โหลดไฟล์ต้นฉบับทันที',
+      shareLink: 'คัดลอกลิงก์แชร์สื่อ',
+      linkCopied: 'คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว',
+      zoomIn: 'ซูมเข้า',
+      zoomOut: 'ซูมออก',
+      zoomReset: 'รีเซ็ต',
+    },
+    search: {
+      resultsTitle: 'ผลการค้นหา',
+      resultsCount: 'พบสื่อที่ตรงกันทั้งหมด {count} รายการ',
+      clearSearch: 'ล้างการค้นหา',
+      noResults: 'ไม่พบสื่อที่ตรงกัน',
+      noResultsDesc: 'โปรดลองใช้คำค้นหาที่สั้นลงหรือรีเซ็ตตัวกรอง',
+    },
+    toast: {
+      preparingDownload: 'กำลังแพ็กไฟล์เพื่อส่งถ่ายข้อมูล...',
+      preparingDesc: 'สร้างช่องทางดาวน์โหลดความเร็วสูงสำหรับ "{title}" แล้ว',
+      downloadStarted: 'เริ่มดาวน์โหลดแล้ว!',
+      downloadStartedDesc: 'บันทึกไฟล์ต้นฉบับ "{title}" ลงในอุปกรณ์ของคุณแล้ว',
+      batchPackaging: 'กำลังบีบอัดไฟล์โซน [{zone}]',
+      batchPackagingDesc: 'กำลังสร้างไฟล์ ZIP สำหรับสื่อความละเอียดสูง {count} ไฟล์ในโซนนี้...',
+      batchReady: 'ไฟล์ ZIP พร้อมแล้ว!',
+      batchReadyDesc: 'เริ่มดาวน์โหลดแพ็กเกจสื่อครบชุดของ [{zone}] แล้ว',
+    },
+    dock: {
+      all: 'ทั้งหมด',
+      courseware: 'เอกสาร',
+      marketing: 'โปสเตอร์',
+      assets: 'สื่อแบรนด์',
+      videos: 'วิดีโอ',
+      events: 'ภาพถ่าย',
+      backToTop: 'บนสุด',
+    },
+    footer: {
+      copyright: '© 2026 SPARK UNION CAPITAL INC. ฐานข้อมูลสื่อระดับโลก สงวนลิขสิทธิ์ทั้งหมด',
+      compliance: 'จดทะเบียนสถาบันการเงิน MSB กับ FinCEN สหรัฐฯ เลขที่: 31000275819482',
+      privacy: 'นโยบายความเป็นส่วนตัว',
+      terms: 'ข้อกำหนดการใช้งาน',
+      security: 'การรับรองความถูกต้อง',
+    },
+  },
+
+  // 7. 越南文 (Vietnamese - Tiếng Việt)
+  '越南文': {
+    nav: {
+      brandSubtitle: 'Union Capital Inc. • Cơ sở dữ liệu tài nguyên toàn cầu',
+      searchPlaceholder: 'Tìm nhanh bài giảng, áp phích, logo 3D, video, album...',
+      searchPlaceholderMobile: 'Tìm tài liệu, áp phích, video...',
+      liveSyncReady: 'Đồng bộ thời gian thực sẵn sàng',
+      selectLanguageTitle: 'Chọn thị trường ngôn ngữ',
+      languageCount: '8 ngôn ngữ',
+      done: 'Xong',
+      allLanguages: 'Tất cả ngôn ngữ',
+    },
+    hero: {
+      slogan: 'Tầm nhìn toàn cầu • Tài chính thông minh',
+      title: 'Kho tài nguyên chính thức SPARK',
+      subtitle: 'Trọn bộ tài sản thiết kế • Lưu trữ danh mục theo mô-đun',
+      description: 'Trung tâm tài nguyên chính thức dành cho đối tác và mạng lưới cộng đồng toàn cầu. Tổng hợp bài thuyết trình, áp phích, logo 3D, video quảng bá và album hoạt động xã hội.',
+      descriptionHighlight: '⚡️ Tải trực tiếp ngay không cần đăng nhập. Chuyển đổi ngôn ngữ một chạm và tải trọn gói nén ZIP.',
+      descriptionMobile: 'Kho tài nguyên chính thức: bài giảng, poster, logo 3D, video tải ngay lập tức.',
+      quickJump: 'Đến nhanh:',
+      stats_assets: 'Tài nguyên',
+      stats_zones: '5 khu vực',
+      stats_zonesDesc: 'Phân loại chuẩn',
+      stats_languages: 'Đa ngôn ngữ',
+      stats_languagesDesc: 'Chuyển đổi tức thì',
+      stats_free: 'Không cần đăng nhập',
+      stats_freeDesc: 'Tải siêu tốc',
+    },
+    metrics: {
+      title: 'SPARK ECOSYSTEM',
+      subtitle: 'Dữ liệu mạng lưới toàn cầu thời gian thực',
+      latency: 'Độ trễ 16ms',
+      nodeSync: 'Đang đồng bộ nút tại 28 quốc gia',
+      winRateTitle: 'Tỷ lệ thắng AI Quant 24H',
+      winRateDesc: 'Thực thi chiến lược phòng ngừa phi rủi ro',
+      nodesTitle: 'Nút hoạt động toàn cầu',
+      nodesDesc: 'Bao phủ trên 28 quốc gia và vùng lãnh thổ',
+      aumTitle: 'Quy mô quản lý tài sản',
+      aumDesc: 'Phân tách ví nóng/lạnh đa chữ ký',
+      uptimeTitle: 'Ngày vận hành an toàn',
+      uptimeDesc: '100% hợp đồng thông minh ổn định',
+      downloadsTitle: 'Lượt phân phối tài nguyên 24H',
+      downloadsDesc: 'Lưu lượng toàn mạng 1.84 TB',
+      livePull: 'Kéo dữ liệu trực tiếp',
+      justDownloaded: 'vừa tải xuống',
+      justViewed: 'vừa xem',
+      justVerified: 'vừa kiểm tra',
+      liveBroadcast: 'Phát trực tiếp',
+    },
+    zones: {
+      all: 'Tất cả khu vực',
+      courseware: 'Bài giảng & Giáo trình',
+      marketing: 'Tiếp thị & Quảng bá',
+      assets: 'Tài nguyên thương hiệu',
+      videos: 'Video chính thức',
+      events: 'Hình ảnh hoạt động',
+      coursewareSub: 'Bài giảng tiêu chuẩn • Sách trắng tài chính • Bài thuyết trình toàn cầu (Bấm nút nhỏ để đổi ngôn ngữ)',
+      marketingSub: 'Ảnh dài quyền lợi hội viên • Áp phích thương hiệu • Đồ họa in ấn độ phân giải cao 4K',
+      assetsSub: 'Logo kim loại 3D mới • Vector nền trong suốt • Standee cuốn đa ngôn ngữ & giấy phép',
+      videosSub: 'Video quảng bá điện ảnh 4 thứ tiếng • Hiệu ứng logo 3D • Phim tài liệu thiện nguyện thực địa',
+      eventsSub: 'Học bổng Tây Phi • Thiện nguyện Việt Nam • Trại trẻ mồ côi Thái Lan • Viện dưỡng lão Malaysia',
+      format: 'Định dạng:',
+      format_all: 'TẤT CẢ',
+      format_image: 'HÌNH ẢNH',
+      format_video: 'VIDEO',
+      batchDownload: 'Tải trọn gói khu vực này',
+      itemsCount: 'mục tài nguyên',
+    },
+    cards: {
+      version: 'Phiên bản:',
+      preview: 'Xem trước',
+      previewShort: 'Xem',
+      download: 'Tải cực nhanh',
+      downloadShort: 'Tải về',
+      photoCount: 'ảnh gốc',
+    },
+    modal: {
+      downloadsVerified: 'lượt tải và xác thực',
+      fileFormat: 'Định dạng tệp',
+      fileSize: 'Dung lượng tệp',
+      updatedAt: 'Ngày cập nhật',
+      targetMarkets: 'Thị trường áp dụng',
+      usageNoticeTitle: 'Quy chuẩn sử dụng tài nguyên',
+      usageNotice: 'Quy chuẩn chính thức: Chỉ dành cho đối tác Spark được ủy quyền. Nghiêm cấm sửa đổi hình ảnh chủ đạo hoặc che khuất logo.',
+      downloadSource: 'Tải tệp gốc đầy đủ ngay lập tức',
+      shareLink: 'Sao chép liên kết chia sẻ',
+      linkCopied: 'Đã sao chép liên kết vào bộ nhớ tạm',
+      zoomIn: 'Phóng to',
+      zoomOut: 'Thu nhỏ',
+      zoomReset: 'Đặt lại',
+    },
+    search: {
+      resultsTitle: 'Kết quả tìm kiếm',
+      resultsCount: 'Tìm thấy {count} tài nguyên phù hợp',
+      clearSearch: 'Xóa tìm kiếm',
+      noResults: 'Không tìm thấy tài nguyên phù hợp',
+      noResultsDesc: 'Vui lòng thử rút ngắn từ khóa hoặc đặt lại điều kiện lọc.',
+    },
+    toast: {
+      preparingDownload: 'Đang đóng gói truyền tải siêu tốc...',
+      preparingDesc: 'Đã thiết lập kênh tải an toàn tốc độ cao cho "{title}".',
+      downloadStarted: 'Đã bắt đầu tải xuống!',
+      downloadStartedDesc: 'Tệp gốc "{title}" đã được lưu vào thiết bị của bạn.',
+      batchPackaging: 'Đang nén tài nguyên [{zone}]',
+      batchPackagingDesc: 'Đang tạo gói ZIP cho {count} tệp độ nét cao trong khu vực này...',
+      batchReady: 'Gói nén ZIP đã sẵn sàng!',
+      batchReadyDesc: 'Gói tài nguyên hoàn chỉnh của [{zone}] đã bắt đầu tải xuống.',
+    },
+    dock: {
+      all: 'Tất cả',
+      courseware: 'Bài giảng',
+      marketing: 'Áp phích',
+      assets: 'Tài nguyên',
+      videos: 'Video',
+      events: 'Hình ảnh',
+      backToTop: 'Lên đầu',
+    },
+    footer: {
+      copyright: '© 2026 SPARK UNION CAPITAL INC. Cơ sở dữ liệu tài nguyên toàn cầu. Mọi quyền được bảo lưu.',
+      compliance: 'Đăng ký tổ chức tài chính MSB với FinCEN Hoa Kỳ số: 31000275819482.',
+      privacy: 'Chính sách bảo mật',
+      terms: 'Điều khoản sử dụng',
+      security: 'Chứng nhận tuân thủ',
+    },
+  },
+
+  // 8. 印尼文 (Indonesian - Bahasa Indonesia)
+  '印尼文': {
+    nav: {
+      brandSubtitle: 'Union Capital Inc. • Pusat Database Materi Global',
+      searchPlaceholder: 'Cari materi, poster, logo 3D, video, album foto...',
+      searchPlaceholderMobile: 'Cari materi, poster, video...',
+      liveSyncReady: 'Sinkronisasi Langsung Aktif',
+      selectLanguageTitle: 'Pilih Bahasa Pasar',
+      languageCount: '8 Bahasa',
+      done: 'Selesai',
+      allLanguages: 'Semua Bahasa',
+    },
+    hero: {
+      slogan: 'Visi Global • Keuangan Cerdas',
+      title: 'Pusat Materi Resmi SPARK',
+      subtitle: 'Aset Desain Lengkap • Arsip Kategori Modular',
+      description: 'Pusat materi resmi untuk mitra, perwakilan, dan komunitas global. Berisi materi presentasi standar, poster promosi, logo logam 3D, video cinema, dan album kegiatan sosial.',
+      descriptionHighlight: '⚡️ Unduh langsung tanpa login. Beralih versi bahasa dengan sekali klik dan paket arsip ZIP sekaligus.',
+      descriptionMobile: 'Pusat materi resmi: presentasi, poster, logo 3D, video siap diunduh.',
+      quickJump: 'Menuju:',
+      stats_assets: 'Aset Tersedia',
+      stats_zones: '5 Kategori',
+      stats_zonesDesc: 'Kategori Rapi',
+      stats_languages: 'Multi Bahasa',
+      stats_languagesDesc: 'Beralih Cepat',
+      stats_free: 'Bebas Login',
+      stats_freeDesc: 'Unduh Cepat',
+    },
+    metrics: {
+      title: 'SPARK ECOSYSTEM',
+      subtitle: 'Data Jaringan Real-Time Global',
+      latency: 'Latensi 16ms',
+      nodeSync: 'Sinkronisasi simpul di 28 negara',
+      winRateTitle: 'Win Rate AI Quant 24J',
+      winRateDesc: 'Eksekusi Strategi Hedging Tanpa Rugi',
+      nodesTitle: 'Simpul Aktif Global',
+      nodesDesc: 'Mencakup 28+ negara & wilayah',
+      aumTitle: 'Total Dana Dikelola',
+      aumDesc: 'Pemisahan dompet multi-tanda tangan',
+      uptimeTitle: 'Hari Operasi Aman',
+      uptimeDesc: '100% kontrak pintar stabil',
+      downloadsTitle: 'Total Pengiriman 24J',
+      downloadsDesc: 'Throughput jaringan 1.84 TB',
+      livePull: 'Live Feed',
+      justDownloaded: 'baru saja mengunduh',
+      justViewed: 'baru saja melihat',
+      justVerified: 'baru saja memeriksa',
+      liveBroadcast: 'Siaran Langsung',
+    },
+    zones: {
+      all: 'Semua Kategori',
+      courseware: 'Materi Presentasi',
+      marketing: 'Promosi Pasar',
+      assets: 'Aset Merek & Logo',
+      videos: 'Video Resmi',
+      events: 'Foto Kegiatan',
+      coursewareSub: 'Materi presentasi standar • Buku putih keuangan • Slide seminar global (Klik tombol kecil untuk ganti bahasa)',
+      marketingSub: 'Infografis hak anggota • Poster resmi merek • Visual resolusi tinggi 4K standar cetak',
+      assetsSub: 'Logo logam 3D baru • Vektor latar transparan • Banner roll-up multi-bahasa & lisensi resmi',
+      videosSub: 'Video promosi cinema 4 bahasa • Efek logo 3D • Dokumenter kegiatan sosial di berbagai negara',
+      eventsSub: 'Beasiswa Afrika Barat • Donasi Vietnam • Panti asuhan Thailand • Panti jompo Malaysia',
+      format: 'Format:',
+      format_all: 'SEMUA',
+      format_image: 'GAMBAR',
+      format_video: 'VIDEO',
+      batchDownload: 'Unduh Semua Kategori Ini',
+      itemsCount: 'materi',
+    },
+    cards: {
+      version: 'Versi:',
+      preview: 'Pratinjau',
+      previewShort: 'Lihat',
+      download: 'Unduh Cepat',
+      downloadShort: 'Unduh',
+      photoCount: 'foto resolusi tinggi',
+    },
+    modal: {
+      downloadsVerified: 'kali diunduh dan diperiksa',
+      fileFormat: 'Format Berkas',
+      fileSize: 'Ukuran Berkas',
+      updatedAt: 'Tanggal Pembaruan',
+      targetMarkets: 'Pasar Sasaran',
+      usageNoticeTitle: 'Pedoman Penggunaan Resmi',
+      usageNotice: 'Panduan Resmi: Khusus untuk mitra resmi Spark. Dilarang keras memodifikasi visual utama atau menutupi logo.',
+      downloadSource: 'Unduh Berkas Sumber Asli Sekarang',
+      shareLink: 'Salin Tautan Berbagi',
+      linkCopied: 'Tautan disalin ke papan klip',
+      zoomIn: 'Perbesar',
+      zoomOut: 'Perkecil',
+      zoomReset: 'Reset',
+    },
+    search: {
+      resultsTitle: 'Hasil Pencarian',
+      resultsCount: 'Ditemukan {count} materi yang cocok',
+      clearSearch: 'Hapus Pencarian',
+      noResults: 'Materi Tidak Ditemukan',
+      noResultsDesc: 'Coba gunakan kata kunci lebih singkat atau atur ulang filter.',
+    },
+    toast: {
+      preparingDownload: 'Menyiapkan transfer berkecepatan tinggi...',
+      preparingDesc: 'Saluran pengunduhan aman cepat untuk "{title}" telah dibuat.',
+      downloadStarted: 'Pengunduhan Dimulai!',
+      downloadStartedDesc: 'Berkas master "{title}" sedang disimpan ke perangkat Anda.',
+      batchPackaging: 'Mengompresi Materi [{zone}]',
+      batchPackagingDesc: 'Membuat paket ZIP untuk {count} berkas berkualitas tinggi di kategori ini...',
+      batchReady: 'Arsip ZIP Siap!',
+      batchReadyDesc: 'Paket lengkap materi [{zone}] mulai diunduh.',
+    },
+    dock: {
+      all: 'Semua',
+      courseware: 'Materi',
+      marketing: 'Poster',
+      assets: 'Aset',
+      videos: 'Video',
+      events: 'Foto',
+      backToTop: 'Ke Atas',
+    },
+    footer: {
+      copyright: '© 2026 SPARK UNION CAPITAL INC. Pusat Database Materi Global. Hak cipta dilindungi undang-undang.',
+      compliance: 'Terdaftar di FinCEN AS sebagai Lembaga Keuangan MSB No.: 31000275819482.',
+      privacy: 'Kebijakan Privasi',
+      terms: 'Syarat Penggunaan',
+      security: 'Verifikasi Kepatuhan',
+    },
+  },
+};
+
+export function getTranslation(language: string): TranslationDict {
+  return TRANSLATIONS[language] || TRANSLATIONS['中文简体'];
+}

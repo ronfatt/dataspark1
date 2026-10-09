@@ -6,13 +6,14 @@ import {
   FileText, 
   Film, 
   Image as ImageIcon, 
-  Archive,
-  Clock,
-  HardDrive,
-  Camera,
-  Play
+  Archive, 
+  Clock, 
+  HardDrive, 
+  Camera, 
+  Play 
 } from 'lucide-react';
 import type { ResourceItem } from '../../types/resource';
+import { useI18n } from '../../i18n/I18nContext';
 
 interface ZoneItemCardProps {
   item: ResourceItem;
@@ -25,6 +26,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
   onPreview,
   onDownload,
 }) => {
+  const { t } = useI18n();
   const [selectedEditionIndex, setSelectedEditionIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -73,7 +75,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
       previewUrl: activePreviewUrl,
       fileSize: activeFileSize,
       fileFormatName: activeFormatName,
-      title: currentEdition ? `${item.title} (${currentEdition.label}版)` : item.title,
+      title: currentEdition ? `${item.title} (${currentEdition.label})` : item.title,
     };
     onDownload(itemToDownload);
   };
@@ -134,7 +136,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
           <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 pointer-events-none">
             <span className="px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg">
               <Eye className="w-3.5 h-3.5 text-purple-400" />
-              <span>全屏查验</span>
+              <span>{t.cards.preview}</span>
             </span>
           </div>
 
@@ -153,7 +155,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
               {item.photoCount ? (
                 <>
                   <Camera className="w-3 h-3 text-emerald-400" />
-                  <span>{item.photoCount} 张原图</span>
+                  <span>{item.photoCount} {t.cards.photoCount}</span>
                 </>
               ) : (
                 <>
@@ -179,7 +181,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
           {/* Multi-language Edition Small Buttons (同一档案多语言切换) */}
           {hasEditions && item.editions!.length > 1 ? (
             <div className="flex items-center gap-1.5 mb-2 sm:mb-2.5 flex-wrap">
-              <span className="text-[10px] text-slate-400 mr-0.5 font-medium">版本:</span>
+              <span className="text-[10px] text-slate-400 mr-0.5 font-medium">{t.cards.version}</span>
               {item.editions!.map((ed, idx) => {
                 const isSelected = idx === selectedEditionIndex;
                 return (
@@ -256,7 +258,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
           className="flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-2 sm:px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] sm:text-xs font-semibold text-slate-300 hover:text-white transition-all active:scale-95 cursor-pointer"
         >
           <Eye className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-          <span><span className="hidden sm:inline">查验</span>预览</span>
+          <span><span className="hidden sm:inline">{t.cards.preview}</span><span className="sm:hidden">{t.cards.previewShort}</span></span>
         </button>
 
         <button
@@ -264,7 +266,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
           className="flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-2 sm:px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-[11px] sm:text-xs font-bold shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all active:scale-95 cursor-pointer"
         >
           <Download className="w-3.5 h-3.5 shrink-0" />
-          <span><span className="hidden sm:inline">极速</span>下载</span>
+          <span><span className="hidden sm:inline">{t.cards.download}</span><span className="sm:hidden">{t.cards.downloadShort}</span></span>
         </button>
       </div>
 

@@ -8,6 +8,7 @@ import {
   Camera, 
   Layers
 } from 'lucide-react';
+import { useI18n } from '../../i18n/I18nContext';
 
 interface HeroBannerProps {
   totalAssets: number;
@@ -22,6 +23,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   onSearchChange,
   onQuickJump,
 }) => {
+  const { t } = useI18n();
+
   return (
     <section className="relative overflow-hidden pt-6 pb-10 sm:pt-10 sm:pb-14 border-b border-purple-500/15">
       {/* Background Glows */}
@@ -44,67 +47,67 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
               {/* Slogan Pill */}
               <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-purple-950/70 border border-purple-500/30 text-purple-300 text-[10px] sm:text-xs font-semibold tracking-wider uppercase mb-3 sm:mb-4 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
                 <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-purple-400 animate-pulse" />
-                <span>Global Vision • Intelligent Finance</span>
+                <span>{t.hero.slogan}</span>
               </div>
 
               {/* Title with Chrome Gradient */}
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-2 sm:mb-4">
-                <span className="chrome-text block">SPARK 官方物料数据库</span>
+                <span className="chrome-text block">{t.hero.title}</span>
                 <span className="bg-gradient-to-r from-purple-400 via-violet-300 to-indigo-300 bg-clip-text text-transparent text-lg sm:text-2xl lg:text-3xl block mt-1">
-                  全套设计资产 • 模块化分区归档
+                  {t.hero.subtitle}
                 </span>
               </h1>
 
               {/* Description */}
               <p className="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed mb-4 sm:mb-6 hidden sm:block">
-                面向全球用户、代理商与合作伙伴的官方物料中心。汇集标准课件、海报长图、3D徽标与易拉宝、官方宣发视频及全球公益纪实相册。
+                {t.hero.description}
                 <strong className="text-purple-300 font-semibold block mt-1">
-                  ⚡️ 全站物料免登录即开即下，支持多语言版本一键切换与批量打包。
+                  {t.hero.descriptionHighlight}
                 </strong>
               </p>
 
               {/* Mobile Concise Description */}
               <p className="text-slate-300 text-xs leading-relaxed mb-3 sm:hidden">
-                官方物料数据库，课件、海报、3D标、宣发片及相册免登录即开即下。
+                {t.hero.descriptionMobile}
               </p>
 
               {/* Quick Jump Chips (Scrollable on mobile) */}
               <div className="flex items-center justify-start lg:justify-start gap-1.5 sm:gap-2 mb-4 sm:mb-6 overflow-x-auto no-scrollbar py-1 -mx-2 px-2 sm:mx-0 sm:px-0">
-                <span className="text-[11px] sm:text-xs text-slate-400 shrink-0 mr-0.5">直达:</span>
+                <span className="text-[11px] sm:text-xs text-slate-400 shrink-0 mr-0.5">{t.hero.quickJump}</span>
                 <button
                   onClick={() => onQuickJump('courseware')}
                   className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-xs text-purple-300 hover:text-white transition-all flex items-center gap-1 shrink-0 active:scale-95 cursor-pointer"
                 >
                   <FileText className="w-3 h-3 text-purple-400" />
-                  <span>课件区</span>
+                  <span>{t.zones.courseware}</span>
                 </button>
                 <button
                   onClick={() => onQuickJump('marketing')}
                   className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-xs text-purple-300 hover:text-white transition-all flex items-center gap-1 shrink-0 active:scale-95 cursor-pointer"
                 >
                   <Megaphone className="w-3 h-3 text-purple-400" />
-                  <span>市场宣传</span>
+                  <span>{t.zones.marketing}</span>
                 </button>
                 <button
                   onClick={() => onQuickJump('assets')}
                   className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-xs text-purple-300 hover:text-white transition-all flex items-center gap-1 shrink-0 active:scale-95 cursor-pointer"
                 >
                   <Sparkles className="w-3 h-3 text-purple-400" />
-                  <span>素材专区</span>
+                  <span>{t.zones.assets}</span>
                 </button>
                 <button
                   onClick={() => onQuickJump('videos')}
                   className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-xs text-purple-300 hover:text-white transition-all flex items-center gap-1 shrink-0 active:scale-95 cursor-pointer"
                 >
                   <Film className="w-3 h-3 text-purple-400" />
-                  <span>视频专区</span>
+                  <span>{t.zones.videos}</span>
                 </button>
                 <button
                   onClick={() => onQuickJump('events')}
                   className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-xs text-purple-300 hover:text-white transition-all flex items-center gap-1 shrink-0 active:scale-95 cursor-pointer"
                 >
                   <Camera className="w-3 h-3 text-purple-400" />
-                  <span>活动照片区</span>
+                  <span>{t.zones.events}</span>
                 </button>
               </div>
 
@@ -114,28 +117,28 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                   <div className="text-base sm:text-xl font-black font-['Space_Grotesk'] text-white">
                     {totalAssets}+
                   </div>
-                  <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">收录物料</div>
+                  <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">{t.hero.stats_assets}</div>
                 </div>
 
                 <div className="p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
                   <div className="text-base sm:text-xl font-black font-['Space_Grotesk'] text-purple-300">
-                    5 大专区
+                    {t.hero.stats_zones}
                   </div>
-                  <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">精准归档</div>
+                  <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">{t.hero.stats_zonesDesc}</div>
                 </div>
 
                 <div className="p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
                   <div className="text-base sm:text-xl font-black font-['Space_Grotesk'] text-emerald-400">
-                    多语言
+                    {t.hero.stats_languages}
                   </div>
-                  <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">单卡即切</div>
+                  <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">{t.hero.stats_languagesDesc}</div>
                 </div>
 
                 <div className="p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
                   <div className="text-base sm:text-xl font-black font-['Space_Grotesk'] text-amber-300">
-                    免登录
+                    {t.hero.stats_free}
                   </div>
-                  <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">极速下载</div>
+                  <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">{t.hero.stats_freeDesc}</div>
                 </div>
               </div>
 

@@ -10,6 +10,7 @@ import {
   ArrowDown
 } from 'lucide-react';
 import type { ZoneType, FileFormat } from '../../types/resource';
+import { useI18n } from '../../i18n/I18nContext';
 
 interface ZoneNavBarProps {
   activeZone: ZoneType | 'all';
@@ -19,15 +20,6 @@ interface ZoneNavBarProps {
   onSelectFormat: (format: FileFormat | 'All') => void;
 }
 
-export const ZONES = [
-  { id: 'all' as const, label: '全部专区', icon: Layers, desc: '全景总览' },
-  { id: 'courseware' as const, label: '课件区', icon: FileText, desc: '项目介绍 • 金融简介' },
-  { id: 'marketing' as const, label: '市场宣传', icon: Megaphone, desc: '各种海报 • 权益长图' },
-  { id: 'assets' as const, label: '素材专区', icon: Sparkles, desc: '3D Logo • 易拉宝' },
-  { id: 'videos' as const, label: '视频专区', icon: Film, desc: '宣传片 • 动效 • 公益片' },
-  { id: 'events' as const, label: '活动照片区', icon: Camera, desc: '西非 • 越南 • 泰国 • 大马' },
-];
-
 export const ZoneNavBar: React.FC<ZoneNavBarProps> = ({
   activeZone,
   onSelectZone,
@@ -35,6 +27,17 @@ export const ZoneNavBar: React.FC<ZoneNavBarProps> = ({
   selectedFormat,
   onSelectFormat,
 }) => {
+  const { t } = useI18n();
+
+  const zones = [
+    { id: 'all' as const, label: t.zones.all, icon: Layers },
+    { id: 'courseware' as const, label: t.zones.courseware, icon: FileText },
+    { id: 'marketing' as const, label: t.zones.marketing, icon: Megaphone },
+    { id: 'assets' as const, label: t.zones.assets, icon: Sparkles },
+    { id: 'videos' as const, label: t.zones.videos, icon: Film },
+    { id: 'events' as const, label: t.zones.events, icon: Camera },
+  ];
+
   const scrollToZone = (zoneId: ZoneType | 'all') => {
     onSelectZone(zoneId);
     if (zoneId === 'all') {
@@ -49,6 +52,13 @@ export const ZoneNavBar: React.FC<ZoneNavBarProps> = ({
     }
   };
 
+  const getFormatLabel = (fmt: FileFormat | 'All') => {
+    if (fmt === 'All') return t.zones.format_all;
+    if (fmt === 'image') return t.zones.format_image;
+    if (fmt === 'video') return t.zones.format_video;
+    return fmt.toUpperCase();
+  };
+
   return (
     <div className="sticky top-14 sm:top-20 z-30 bg-[#07050d]/90 backdrop-blur-xl border-b border-purple-500/20 py-2 sm:py-3 transition-all">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -59,7 +69,7 @@ export const ZoneNavBar: React.FC<ZoneNavBarProps> = ({
           {/* Scrollable Zone Tabs with subtle gradient fade */}
           <div className="relative overflow-hidden -mx-3 px-3 sm:mx-0 sm:px-0">
             <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5">
-              {ZONES.map((zone) => {
+              {zones.map((zone) => {
                 const Icon = zone.icon;
                 const isActive = activeZone === zone.id;
                 const count = zone.id === 'all' 
@@ -97,7 +107,7 @@ export const ZoneNavBar: React.FC<ZoneNavBarProps> = ({
           <div className="flex items-center gap-1 overflow-x-auto no-scrollbar pt-1 sm:pt-0 shrink-0 border-t sm:border-t-0 border-purple-500/10">
             <span className="text-[10px] sm:text-[11px] text-slate-400 mr-1 flex items-center gap-1 shrink-0">
               <Filter className="w-3 h-3 text-purple-400" />
-              <span>格式:</span>
+              <span>{t.zones.format}:</span>
             </span>
             {(['All', 'pdf', 'image', 'video', 'archive'] as const).map((fmt) => (
               <button
@@ -109,7 +119,7 @@ export const ZoneNavBar: React.FC<ZoneNavBarProps> = ({
                     : 'bg-white/5 text-slate-400 hover:text-slate-200 border border-transparent'
                 }`}
               >
-                {fmt === 'All' ? '全部' : fmt === 'image' ? '图片' : fmt === 'video' ? '视频' : fmt.toUpperCase()}
+                {getFormatLabel(fmt)}
               </button>
             ))}
           </div>

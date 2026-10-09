@@ -11,6 +11,7 @@ import { SectionBlock } from './components/resources/SectionBlock';
 import { PreviewModal } from './components/resources/PreviewModal';
 import { INITIAL_RESOURCES } from './data/initialAssets';
 import { fetchCompletedProjects, subscribeToCompletedProjects } from './services/syncService';
+import { I18nProvider, useI18n } from './i18n/I18nContext';
 import type { 
   ResourceItem, 
   ZoneType, 
@@ -29,10 +30,12 @@ import {
   Bell
 } from 'lucide-react';
 
-export const App: React.FC = () => {
+export const AppContent: React.FC = () => {
+  const { t, currentLanguage, setLanguage } = useI18n();
   const [resources, setResources] = useState<ResourceItem[]>(INITIAL_RESOURCES);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState<SupportedLanguage | 'All'>('All');
+  const selectedLanguage = currentLanguage;
+  const setSelectedLanguage = setLanguage;
   const [activeZone, setActiveZone] = useState<ZoneType | 'all'>('all');
   const [selectedFormat, setSelectedFormat] = useState<FileFormat | 'All'>('All');
   const [selectedSort, setSelectedSort] = useState<SortOption>('latest');
@@ -180,8 +183,8 @@ export const App: React.FC = () => {
     }
 
     setToastMessage({
-      title: '正在极速打包传输...',
-      desc: `已为您建立《${item.title}》的高速安全下载通道。`,
+      title: t.toast.preparingDownload,
+      desc: t.toast.preparingDesc.replace('{title}', item.title),
       type: 'info'
     });
 
@@ -197,8 +200,8 @@ export const App: React.FC = () => {
 
     setTimeout(() => {
       setToastMessage({
-        title: '下载已启动！',
-        desc: `《${item.title}》源文件已成功保存到您的本地设备。`,
+        title: t.toast.downloadStarted,
+        desc: t.toast.downloadStartedDesc.replace('{title}', item.title),
         type: 'success'
       });
       setTimeout(() => setToastMessage(null), 3000);
@@ -217,15 +220,15 @@ export const App: React.FC = () => {
     }
 
     setToastMessage({
-      title: `打包下载【${zoneName}】物料`,
-      desc: `正在为该专区下的 ${itemsCount} 份高清源文件生成 ZIP 压缩总包...`,
+      title: t.toast.batchPackaging.replace('{zone}', zoneName),
+      desc: t.toast.batchPackagingDesc.replace('{count}', String(itemsCount)),
       type: 'info'
     });
 
     setTimeout(() => {
       setToastMessage({
-        title: 'ZIP 打包已就绪！',
-        desc: `【${zoneName}】全套物料压缩包已开始下载。`,
+        title: t.toast.batchReady,
+        desc: t.toast.batchReadyDesc.replace('{zone}', zoneName),
         type: 'success'
       });
       setTimeout(() => setToastMessage(null), 4000);
@@ -309,15 +312,17 @@ export const App: React.FC = () => {
             <div className="flex items-center justify-between mb-4 sm:mb-6">
               <div>
                 <h2 className="text-lg sm:text-2xl font-black text-white">
-                  搜索结果: “{searchQuery}”
+                  {t.search.resultsTitle}: “{searchQuery}”
                 </h2>
-                <p className="text-xs text-slate-400 mt-0.5 sm:mt-1">共找到 {filteredResources.length} 项匹配物料</p>
+                <p className="text-xs text-slate-400 mt-0.5 sm:mt-1">
+                  {t.search.resultsCount.replace('{count}', String(filteredResources.length))}
+                </p>
               </div>
               <button
                 onClick={() => setSearchQuery('')}
                 className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 active:scale-95 cursor-pointer"
               >
-                清除搜索
+                {t.search.clearSearch}
               </button>
             </div>
 
@@ -335,8 +340,8 @@ export const App: React.FC = () => {
             ) : (
               <div className="p-8 sm:p-12 text-center rounded-3xl metal-card max-w-md mx-auto my-8 sm:my-12">
                 <Search className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 mx-auto mb-3" />
-                <h3 className="text-sm sm:text-base font-bold text-white mb-1">未找到匹配物料</h3>
-                <p className="text-xs text-slate-400">请尝试缩短搜索词或重置筛选条件。</p>
+                <h3 className="text-sm sm:text-base font-bold text-white mb-1">{t.search.noResults}</h3>
+                <p className="text-xs text-slate-400">{t.search.noResultsDesc}</p>
               </div>
             )}
           </div>
@@ -344,15 +349,15 @@ export const App: React.FC = () => {
           /* 5 Dedicated Aligned Sections */
           <div className="space-y-2 sm:space-y-4">
 
-            {/* 1. 课件区 (项目介绍，金融简介) - 舒适单列宽卡片便于多语切换 */}
+            {/* 1. 课件区 (项目介绍，金融简介) */}
             {(activeZone === 'all' || activeZone === 'courseware') && (
               <SectionBlock
                 id="zone-courseware"
                 icon={FileText}
-                title="课件区"
-                subtitle="项目介绍标准课件 • 金融简介白皮书 • 全球演讲讲义 (同一档案点击小按钮切换语言版本)"
+                title={t.zones.courseware}
+                subtitle={t.zones.coursewareSub}
                 count={coursewareItems.length}
-                onBatchDownload={() => handleBatchDownload('课件区', coursewareItems.length)}
+                onBatchDownload={() => handleBatchDownload(t.zones.courseware, coursewareItems.length)}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {coursewareItems.map(item => (
@@ -367,15 +372,15 @@ export const App: React.FC = () => {
               </SectionBlock>
             )}
 
-            {/* 2. 市场宣传 (各种海报，长图) - 移动端双列高密度画册 */}
+            {/* 2. 市场宣传 (各种海报，长图) */}
             {(activeZone === 'all' || activeZone === 'marketing') && (
               <SectionBlock
                 id="zone-marketing"
                 icon={Megaphone}
-                title="市场宣传区"
-                subtitle="会员权益全景长图 • 官方品牌活动海报 • 印刷级宣发竖版主视觉"
+                title={t.zones.marketing}
+                subtitle={t.zones.marketingSub}
                 count={marketingItems.length}
-                onBatchDownload={() => handleBatchDownload('市场宣传区', marketingItems.length)}
+                onBatchDownload={() => handleBatchDownload(t.zones.marketing, marketingItems.length)}
               >
                 <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                   {marketingItems.map(item => (
@@ -390,15 +395,15 @@ export const App: React.FC = () => {
               </SectionBlock>
             )}
 
-            {/* 3. 素材 (logo, 易拉宝, 执照) - 移动端双列高密度 */}
+            {/* 3. 素材 (logo, 易拉宝, 执照) */}
             {(activeZone === 'all' || activeZone === 'assets') && (
               <SectionBlock
                 id="zone-assets"
                 icon={Sparkles}
-                title="素材专区"
-                subtitle="3D立体金属新Logo • 透明底高清矢量 • 多语言线下易拉宝展架与合规执照"
+                title={t.zones.assets}
+                subtitle={t.zones.assetsSub}
                 count={assetsItems.length}
-                onBatchDownload={() => handleBatchDownload('素材专区', assetsItems.length)}
+                onBatchDownload={() => handleBatchDownload(t.zones.assets, assetsItems.length)}
               >
                 <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                   {assetsItems.map(item => (
@@ -413,15 +418,15 @@ export const App: React.FC = () => {
               </SectionBlock>
             )}
 
-            {/* 4. 视频区 (分类项目宣传片，活动片，公益片) - 舒适单列宽画幅 */}
+            {/* 4. 视频区 (分类项目宣传片，活动片，公益片) */}
             {(activeZone === 'all' || activeZone === 'videos') && (
               <SectionBlock
                 id="zone-videos"
                 icon={Film}
-                title="视频专区"
-                subtitle="四语原声官方品牌大片 • 3D动态Logo光效演绎 • 各国现场公益纪录片"
+                title={t.zones.videos}
+                subtitle={t.zones.videosSub}
                 count={videoItems.length}
-                onBatchDownload={() => handleBatchDownload('视频专区', videoItems.length)}
+                onBatchDownload={() => handleBatchDownload(t.zones.videos, videoItems.length)}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {videoItems.map(item => (
@@ -436,15 +441,15 @@ export const App: React.FC = () => {
               </SectionBlock>
             )}
 
-            {/* 5. 活动照片区 (各国公益相册合集) - 移动端双列高密度 */}
+            {/* 5. 活动照片区 (各国公益相册合集) */}
             {(activeZone === 'all' || activeZone === 'events') && (
               <SectionBlock
                 id="zone-events"
                 icon={Camera}
-                title="活动照片区"
-                subtitle="西非助学 • 越南爱心捐赠 • 泰国孤儿院 • 马来西亚老人院等现场高清纪实相册"
+                title={t.zones.events}
+                subtitle={t.zones.eventsSub}
                 count={eventItems.length}
-                onBatchDownload={() => handleBatchDownload('活动照片区', eventItems.length)}
+                onBatchDownload={() => handleBatchDownload(t.zones.events, eventItems.length)}
               >
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                   {eventItems.map(item => (
@@ -484,4 +489,15 @@ export const App: React.FC = () => {
   );
 };
 
+export const App: React.FC = () => {
+  const [selectedLanguage, setSelectedLanguage] = useState<SupportedLanguage | 'All'>('All');
+
+  return (
+    <I18nProvider currentLanguage={selectedLanguage} onLanguageChange={setSelectedLanguage}>
+      <AppContent />
+    </I18nProvider>
+  );
+};
+
 export default App;
+
