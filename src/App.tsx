@@ -4,6 +4,7 @@ import { Navbar } from './components/layout/Navbar';
 import { HeroBanner } from './components/layout/HeroBanner';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomBar } from './components/layout/MobileBottomBar';
+import { RealtimeMetricsBanner } from './components/layout/RealtimeMetricsBanner';
 import { ZoneNavBar } from './components/resources/ZoneNavBar';
 import { ZoneItemCard } from './components/resources/ZoneItemCard';
 import { SectionBlock } from './components/resources/SectionBlock';
@@ -286,6 +287,9 @@ export const App: React.FC = () => {
           }
         }}
       />
+
+      {/* Real-time Ecosystem & Quant Metrics Banner + Live Download Activity Ticker */}
+      <RealtimeMetricsBanner />
 
       {/* Sticky Zone Nav Bar */}
       <ZoneNavBar
