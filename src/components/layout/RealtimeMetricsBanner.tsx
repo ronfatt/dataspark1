@@ -10,6 +10,7 @@ import {
   Radio
 } from 'lucide-react';
 import { useI18n } from '../../i18n/I18nContext';
+import { RealtimeMarketTicker } from './RealtimeMarketTicker';
 
 interface LiveEventRaw {
   id: string;
@@ -196,8 +197,12 @@ export const RealtimeMetricsBanner: React.FC = () => {
 
         </div>
 
+        {/* Global Multi-Asset Realtime Trading Data (Crypto, Gold, US Stocks, Tokens) */}
+        <RealtimeMarketTicker />
+
       </div>
 
     </section>
   );
 };
+

@@ -45,6 +45,19 @@ export interface TranslationDict {
     justViewed: string;
     justVerified: string;
     liveBroadcast: string;
+    marketTitle: string;
+    marketSubtitle: string;
+    tabAll: string;
+    tabCrypto: string;
+    tabGoldCommodity: string;
+    tabUsStocks: string;
+    tabTokens: string;
+    livePrice: string;
+    change24h: string;
+    high24h: string;
+    low24h: string;
+    volume24h: string;
+    realtimeUpdate: string;
   };
   zones: {
     all: string;
@@ -172,6 +185,19 @@ export const TRANSLATIONS: Record<string, TranslationDict> = {
       justViewed: '刚刚调阅了',
       justVerified: '刚刚查验了',
       liveBroadcast: '实时广播',
+      marketTitle: '全球多元资产实时行情',
+      marketSubtitle: '主流加密资产 • 现货黄金与金矿股 • 美股核心科技指数 • Spark 生态代币',
+      tabAll: '全部热门',
+      tabCrypto: '主流区块链',
+      tabGoldCommodity: '黄金与大宗商品',
+      tabUsStocks: '美股巨头走势',
+      tabTokens: '生态代币',
+      livePrice: '现价',
+      change24h: '24H 涨跌',
+      high24h: '24H 最高',
+      low24h: '24H 最低',
+      volume24h: '24H 成交量',
+      realtimeUpdate: '毫秒级自动刷新',
     },
     zones: {
       all: '全部专区',
@@ -298,6 +324,19 @@ export const TRANSLATIONS: Record<string, TranslationDict> = {
       justViewed: '剛剛調閱了',
       justVerified: '剛剛查驗了',
       liveBroadcast: '即時廣播',
+      marketTitle: '全球多元資產即時行情',
+      marketSubtitle: '主流加密資產 • 現貨黃金與金礦股 • 美股核心科技指數 • Spark 生態代幣',
+      tabAll: '全部熱門',
+      tabCrypto: '主流區塊鏈',
+      tabGoldCommodity: '黃金與大宗商品',
+      tabUsStocks: '美股巨頭走勢',
+      tabTokens: '生態代幣',
+      livePrice: '現價',
+      change24h: '24H 漲跌',
+      high24h: '24H 最高',
+      low24h: '24H 最低',
+      volume24h: '24H 成交量',
+      realtimeUpdate: '毫秒級自動刷新',
     },
     zones: {
       all: '全部專區',
@@ -424,6 +463,19 @@ export const TRANSLATIONS: Record<string, TranslationDict> = {
       justViewed: 'just viewed',
       justVerified: 'just verified',
       liveBroadcast: 'Live Broadcast',
+      marketTitle: 'Global Multi-Asset Real-Time Market',
+      marketSubtitle: 'Top Cryptos • Spot Gold & Mining Equities • US Megacap Tech Trends • Spark Ecosystem Tokens',
+      tabAll: 'All Trending',
+      tabCrypto: 'Top Cryptocurrencies',
+      tabGoldCommodity: 'Gold & Commodities',
+      tabUsStocks: 'US Equities',
+      tabTokens: 'Ecosystem Tokens',
+      livePrice: 'Price',
+      change24h: '24H Change',
+      high24h: '24H High',
+      low24h: '24H Low',
+      volume24h: '24H Volume',
+      realtimeUpdate: 'Sub-second auto refresh',
     },
     zones: {
       all: 'All Zones',
@@ -550,6 +602,19 @@ export const TRANSLATIONS: Record<string, TranslationDict> = {
       justViewed: '방금 열람함',
       justVerified: '방금 검증함',
       liveBroadcast: '실시간 피드',
+      marketTitle: '글로벌 멀티 에셋 실시간 시세',
+      marketSubtitle: '주요 블록체인 코인 • 금 현물 및 금광주 • 미국 주요 테크 주식 • Spark 생태계 토큰',
+      tabAll: '전체 인기',
+      tabCrypto: '주요 암호화폐',
+      tabGoldCommodity: '금 및 원자재',
+      tabUsStocks: '미국 테크주',
+      tabTokens: '생태계 토큰',
+      livePrice: '현재가',
+      change24h: '24H 변동률',
+      high24h: '24H 최고',
+      low24h: '24H 최저',
+      volume24h: '24H 거래량',
+      realtimeUpdate: '초단위 실시간 갱신',
     },
     zones: {
       all: '전체 카테고리',
@@ -676,6 +741,19 @@ export const TRANSLATIONS: Record<string, TranslationDict> = {
       justViewed: 'が閲覧しました',
       justVerified: 'が確認しました',
       liveBroadcast: '配信フィード',
+      marketTitle: 'グローバルマルチアセットリアルタイム相場',
+      marketSubtitle: '主要仮想通貨 • 金現物＆産金株 • 米国メガテック株式 • Spark エコシステムトークン',
+      tabAll: '注目銘柄',
+      tabCrypto: '主要暗号資産',
+      tabGoldCommodity: '金・コモディティ',
+      tabUsStocks: '米国主要株',
+      tabTokens: 'エコシステムトークン',
+      livePrice: '現在値',
+      change24h: '24H 騰落率',
+      high24h: '24H 高値',
+      low24h: '24H 安値',
+      volume24h: '24H 出来高',
+      realtimeUpdate: '秒単位自動更新',
     },
     zones: {
       all: 'すべてのゾーン',
@@ -802,6 +880,19 @@ export const TRANSLATIONS: Record<string, TranslationDict> = {
       justViewed: 'เพิ่งเปิดดู',
       justVerified: 'เพิ่งตรวจสอบ',
       liveBroadcast: 'ถ่ายทอดสด',
+      marketTitle: 'ราคาตลาดสินทรัพย์หลากหลายทั่วโลกแบบเรียลไทม์',
+      marketSubtitle: 'คริปโตชั้นนำ • ทองคำแท่งและหุ้นเหมืองทอง • หุ้นเทคโนโลยีสหรัฐฯ • โทเค็นระบบนิเวศ Spark',
+      tabAll: 'ยอดนิยมทั้งหมด',
+      tabCrypto: 'บล็อกเชนหลัก',
+      tabGoldCommodity: 'ทองคำและสินค้าโภคภัณฑ์',
+      tabUsStocks: 'หุ้นสหรัฐฯ ยักษ์ใหญ่',
+      tabTokens: 'โทเค็นระบบนิเวศ',
+      livePrice: 'ราคาล่าสุด',
+      change24h: 'การเปลี่ยนแปลง 24 ชม.',
+      high24h: 'สูงสุด 24 ชม.',
+      low24h: 'ต่ำสุด 24 ชม.',
+      volume24h: 'ปริมาณซื้อขาย 24 ชม.',
+      realtimeUpdate: 'อัปเดตอัตโนมัติระดับวินาที',
     },
     zones: {
       all: 'ทุกโซน',
@@ -928,6 +1019,19 @@ export const TRANSLATIONS: Record<string, TranslationDict> = {
       justViewed: 'vừa xem',
       justVerified: 'vừa kiểm tra',
       liveBroadcast: 'Phát trực tiếp',
+      marketTitle: 'Thị trường đa tài sản thời gian thực toàn cầu',
+      marketSubtitle: 'Crypto hàng đầu • Vàng giao ngay & Cổ phiếu mỏ vàng • Cổ phiếu công nghệ Mỹ • Token hệ sinh thái Spark',
+      tabAll: 'Tất cả thịnh hành',
+      tabCrypto: 'Blockchain hàng đầu',
+      tabGoldCommodity: 'Vàng & Hàng hóa',
+      tabUsStocks: 'Cổ phiếu Mỹ',
+      tabTokens: 'Token hệ sinh thái',
+      livePrice: 'Giá hiện tại',
+      change24h: 'Biến động 24H',
+      high24h: 'Cao nhất 24H',
+      low24h: 'Thấp nhất 24H',
+      volume24h: 'Khối lượng 24H',
+      realtimeUpdate: 'Tự động làm mới theo giây',
     },
     zones: {
       all: 'Tất cả khu vực',
@@ -1054,6 +1158,19 @@ export const TRANSLATIONS: Record<string, TranslationDict> = {
       justViewed: 'baru saja melihat',
       justVerified: 'baru saja memeriksa',
       liveBroadcast: 'Siaran Langsung',
+      marketTitle: 'Pasar Multi-Aset Real-Time Global',
+      marketSubtitle: 'Kripto Teratas • Emas Spot & Saham Tambang • Saham Raksasa AS • Token Ekosistem Spark',
+      tabAll: 'Semua Tren',
+      tabCrypto: 'Blockchain Utama',
+      tabGoldCommodity: 'Emas & Komoditas',
+      tabUsStocks: 'Saham AS',
+      tabTokens: 'Token Ekosistem',
+      livePrice: 'Harga Terkini',
+      change24h: 'Perubahan 24J',
+      high24h: 'Tertinggi 24J',
+      low24h: 'Terendah 24J',
+      volume24h: 'Volume 24J',
+      realtimeUpdate: 'Pembaruan otomatis tiap detik',
     },
     zones: {
       all: 'Semua Kategori',
