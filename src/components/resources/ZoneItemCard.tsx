@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import type { ResourceItem } from '../../types/resource';
 import { useI18n } from '../../i18n/I18nContext';
+import { getLocalizedResource, formatLanguageBadge } from '../../i18n/assetTranslations';
 
 interface ZoneItemCardProps {
   item: ResourceItem;
@@ -26,9 +27,15 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
   onPreview,
   onDownload,
 }) => {
-  const { t } = useI18n();
+  const { t, currentLanguage } = useI18n();
   const [selectedEditionIndex, setSelectedEditionIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Look up localized text for this card
+  const localizedData = getLocalizedResource(item.id, currentLanguage);
+  const displayTitle = localizedData?.title || item.title;
+  const displayDescription = localizedData?.description || item.description;
+  const displaySubCategory = localizedData?.subCategory || item.subCategory;
 
   const hasEditions = Array.isArray(item.editions) && item.editions.length > 0;
   const currentEdition = hasEditions ? item.editions![selectedEditionIndex] : null;
@@ -36,7 +43,9 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
   const activePreviewUrl = currentEdition ? currentEdition.previewUrl : item.previewUrl;
   const activeDownloadUrl = currentEdition ? currentEdition.downloadUrl : item.downloadUrl;
   const activeFileSize = currentEdition ? currentEdition.fileSize : item.fileSize;
-  const activeFormatName = (currentEdition && currentEdition.fileFormatName) ? currentEdition.fileFormatName : item.fileFormatName;
+  const activeFormatName = (currentEdition && currentEdition.fileFormatName) 
+    ? currentEdition.fileFormatName 
+    : (localizedData?.fileFormatName || item.fileFormatName);
 
   // Determine aspect ratio class based on zone
   const getAspectRatioClass = () => {
@@ -71,11 +80,13 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
   const handleDownloadClick = () => {
     const itemToDownload: ResourceItem = {
       ...item,
+      title: displayTitle,
+      description: displayDescription,
+      subCategory: displaySubCategory,
       downloadUrl: activeDownloadUrl,
       previewUrl: activePreviewUrl,
       fileSize: activeFileSize,
       fileFormatName: activeFormatName,
-      title: currentEdition ? `${item.title} (${currentEdition.label})` : item.title,
     };
     onDownload(itemToDownload);
   };
@@ -83,6 +94,9 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
   const handlePreviewClick = () => {
     const itemToPreview: ResourceItem = {
       ...item,
+      title: displayTitle,
+      description: displayDescription,
+      subCategory: displaySubCategory,
       downloadUrl: activeDownloadUrl,
       previewUrl: activePreviewUrl,
       fileSize: activeFileSize,
@@ -146,7 +160,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
             {/* SubCategory Tag */}
             <div className="flex items-center gap-1.5">
               <span className="px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-purple-500/30 text-purple-300 text-[11px] font-semibold">
-                {item.subCategory}
+                {displaySubCategory}
               </span>
             </div>
 
@@ -211,7 +225,7 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
                   key={idx}
                   className="px-1.5 sm:px-2 py-0.2 rounded bg-purple-950/70 border border-purple-500/20 text-[9px] sm:text-[10px] text-purple-300 font-medium"
                 >
-                  {lang}
+                  {formatLanguageBadge(lang, currentLanguage)}
                 </span>
               ))}
             </div>
@@ -221,14 +235,14 @@ export const ZoneItemCard: React.FC<ZoneItemCardProps> = ({
           <h3 
             className="text-xs sm:text-base font-bold text-white group-hover:text-purple-300 transition-colors line-clamp-2 mb-1 sm:mb-1.5 cursor-pointer leading-snug"
             onClick={handlePreviewClick}
-            title={item.title}
+            title={displayTitle}
           >
-            {item.title}
+            {displayTitle}
           </h3>
 
           {/* Description */}
           <p className="text-[11px] sm:text-xs text-slate-400 line-clamp-2 leading-relaxed mb-2 sm:mb-3">
-            {item.description}
+            {displayDescription}
           </p>
 
           {/* Specs: Size & Date */}

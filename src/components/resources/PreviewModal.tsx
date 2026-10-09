@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import type { ResourceItem } from '../../types/resource';
 import { useI18n } from '../../i18n/I18nContext';
+import { getLocalizedResource, formatLanguageBadge } from '../../i18n/assetTranslations';
 
 interface PreviewModalProps {
   item: ResourceItem | null;
@@ -29,11 +30,17 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
   onClose,
   onDownload,
 }) => {
-  const { t } = useI18n();
+  const { t, currentLanguage } = useI18n();
   const [copied, setCopied] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1);
 
   if (!item) return null;
+
+  const localizedData = getLocalizedResource(item.id, currentLanguage);
+  const displayTitle = localizedData?.title || item.title;
+  const displayDescription = localizedData?.description || item.description;
+  const displaySubCategory = localizedData?.subCategory || item.subCategory;
+  const displayFileFormatName = localizedData?.fileFormatName || item.fileFormatName;
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.origin + item.downloadUrl);
@@ -99,7 +106,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             <div className="w-full h-full flex items-center justify-center overflow-auto p-2">
               <img
                 src={item.previewUrl}
-                alt={item.title}
+                alt={displayTitle}
                 style={{ transform: `scale(${zoomLevel})` }}
                 className="max-h-[65vh] max-w-full object-contain rounded-xl shadow-2xl transition-transform duration-200"
               />
@@ -109,14 +116,14 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               <div className="relative w-full max-w-xl aspect-video rounded-2xl overflow-hidden bg-black border border-purple-500/30 shadow-2xl">
                 <img 
                   src={item.previewUrl} 
-                  alt={item.title} 
+                  alt={displayTitle} 
                   className="w-full h-full object-cover opacity-80"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 p-6 text-center">
                   <div className="w-16 h-16 rounded-full bg-purple-600/90 border border-purple-400 text-white flex items-center justify-center shadow-[0_0_25px_rgba(168,85,247,0.8)] mb-3">
                     <Film className="w-8 h-8 ml-0.5" />
                   </div>
-                  <h4 className="text-white font-bold text-sm mb-1">{item.title}</h4>
+                  <h4 className="text-white font-bold text-sm mb-1">{displayTitle}</h4>
                   <span className="text-xs text-purple-300">1080P/4K UHD</span>
                 </div>
               </div>
@@ -126,10 +133,10 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               <div className="w-20 h-20 rounded-2xl bg-purple-950/60 border border-purple-500/30 text-purple-400 mx-auto flex items-center justify-center shadow-[0_0_30px_rgba(124,58,237,0.3)] mb-4">
                 <FileText className="w-10 h-10" />
               </div>
-              <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
-              <p className="text-xs text-slate-400 mb-4">{item.description}</p>
+              <h4 className="text-lg font-bold text-white mb-2">{displayTitle}</h4>
+              <p className="text-xs text-slate-400 mb-4">{displayDescription}</p>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-purple-300">
-                <span>{t.modal.fileFormat}: {item.fileFormatName}</span>
+                <span>{t.modal.fileFormat}: {displayFileFormatName}</span>
                 <span>•</span>
                 <span>{t.modal.fileSize}: {item.fileSize}</span>
               </div>
@@ -154,7 +161,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             {/* Category & Status */}
             <div className="flex items-center justify-between">
               <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-purple-600/25 border border-purple-400/40 text-purple-300 text-xs font-semibold">
-                {item.subCategory}
+                {displaySubCategory}
               </span>
               <span className="text-[11px] sm:text-xs text-slate-400 font-mono">
                 {item.downloadsCount} {t.modal.downloadsVerified}
@@ -164,10 +171,10 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             {/* Title & Description */}
             <div>
               <h2 className="text-base sm:text-xl font-bold text-white mb-1.5 sm:mb-2 leading-snug">
-                {item.title}
+                {displayTitle}
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {item.description}
+                {displayDescription}
               </p>
             </div>
 
@@ -175,7 +182,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
             <div className="grid grid-cols-2 gap-2 sm:gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-black/40 border border-purple-500/15 text-xs font-mono">
               <div>
                 <span className="text-slate-500 block text-[10px]">{t.modal.fileFormat}</span>
-                <span className="text-white font-semibold">{item.fileFormatName}</span>
+                <span className="text-white font-semibold">{displayFileFormatName}</span>
               </div>
               <div>
                 <span className="text-slate-500 block text-[10px]">{t.modal.fileSize}</span>
@@ -187,7 +194,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
               </div>
               <div>
                 <span className="text-slate-500 block text-[10px]">{t.modal.targetMarkets}</span>
-                <span className="text-purple-300 font-semibold">{item.languages.join(', ')}</span>
+                <span className="text-purple-300 font-semibold">{item.languages.map(l => formatLanguageBadge(l, currentLanguage)).join(', ')}</span>
               </div>
             </div>
 
@@ -216,7 +223,13 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
           {/* Action Buttons (Full-width high touch targets) */}
           <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-purple-500/15 space-y-2">
             <button
-              onClick={() => onDownload(item)}
+              onClick={() => onDownload({
+                ...item,
+                title: displayTitle,
+                description: displayDescription,
+                subCategory: displaySubCategory,
+                fileFormatName: displayFileFormatName,
+              })}
               className="w-full min-h-[46px] sm:min-h-[50px] py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(124,58,237,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] transition-all active:scale-95 cursor-pointer"
             >
               <Download className="w-4 h-4 shrink-0" />

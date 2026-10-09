@@ -12,6 +12,7 @@ import { PreviewModal } from './components/resources/PreviewModal';
 import { INITIAL_RESOURCES } from './data/initialAssets';
 import { fetchCompletedProjects, subscribeToCompletedProjects } from './services/syncService';
 import { I18nProvider, useI18n } from './i18n/I18nContext';
+import { getLocalizedResource } from './i18n/assetTranslations';
 import type { 
   ResourceItem, 
   ZoneType, 
@@ -116,34 +117,18 @@ export const AppContent: React.FC = () => {
         }
       }
 
-      // Language filter
-      if (selectedLanguage !== 'All') {
-        const matchesLang = item.languages.some(lang => {
-          if (lang === selectedLanguage) return true;
-          if ((selectedLanguage === '中文简体' || selectedLanguage === '中文') && (lang === '中文简体' || lang === '中文')) return true;
-          if (selectedLanguage === '中文繁体' && lang === '中文繁体') return true;
-          if ((selectedLanguage === '英文' || selectedLanguage === '英语') && (lang === '英文' || lang === '英语')) return true;
-          if ((selectedLanguage === '韩文' || selectedLanguage === '韩语') && (lang === '韩文' || lang === '韩语')) return true;
-          if ((selectedLanguage === '日文' || selectedLanguage === '日语') && (lang === '日文' || lang === '日语')) return true;
-          if ((selectedLanguage === '泰文' || selectedLanguage === '泰语') && (lang === '泰文' || lang === '泰语')) return true;
-          if ((selectedLanguage === '越南文' || selectedLanguage === '越南语') && (lang === '越南文' || lang === '越南语')) return true;
-          if ((selectedLanguage === '印尼文' || selectedLanguage === '印尼语') && (lang === '印尼文' || lang === '印尼语')) return true;
-          return false;
-        });
-        if (!matchesLang) return false;
-      }
-
       // Format filter
       if (selectedFormat !== 'All') {
         if (item.fileType !== selectedFormat) return false;
       }
 
-      // Search Query
+      // Search Query (matches both default text and active language localization)
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
-        const matchTitle = item.title.toLowerCase().includes(q);
-        const matchDesc = item.description.toLowerCase().includes(q);
-        const matchSub = item.subCategory.toLowerCase().includes(q);
+        const localized = getLocalizedResource(item.id, currentLanguage);
+        const matchTitle = item.title.toLowerCase().includes(q) || (localized?.title.toLowerCase().includes(q));
+        const matchDesc = item.description.toLowerCase().includes(q) || (localized?.description.toLowerCase().includes(q));
+        const matchSub = item.subCategory.toLowerCase().includes(q) || (localized?.subCategory.toLowerCase().includes(q));
         const matchTags = item.tags.some(t => t.toLowerCase().includes(q));
         if (!matchTitle && !matchDesc && !matchSub && !matchTags) return false;
       }
